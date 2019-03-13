@@ -2278,504 +2278,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/bookinglist.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/bookinglist.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      list: [],
-      toDayDate: ''
-    };
-  },
-  methods: {
-    getNewList: function () {
-      var _getNewList = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(newDate) {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return this.callApi('get', "getBookingList/".concat(newDate));
-
-              case 2:
-                res = _context.sent;
-
-                if (res.status === 200) {
-                  this.list = res.data;
-                  console.log(this.list);
-                } else {
-                  this.swr();
-                }
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function getNewList(_x) {
-        return _getNewList.apply(this, arguments);
-      }
-
-      return getNewList;
-    }(),
-    getSlots: function getSlots() {
-      // FORMATE THE DATE 
-      var d = new Date(this.toDayDate);
-      var monthNumber = d.getMonth() + 1;
-      monthNumber = ("0" + monthNumber).slice(-2);
-      var dayNumber = d.getDate();
-      dayNumber = ("0" + dayNumber).slice(-2);
-      this.toDayDate = "".concat(d.getFullYear(), "-").concat(monthNumber, "-").concat(dayNumber);
-      this.getNewList(this.toDayDate);
-    },
-    updateStatus: function () {
-      var _updateStatus = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(status, index) {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.callApi('post', "updateStatus", {
-                  status: status,
-                  id: this.list[index].id
-                });
-
-              case 2:
-                res = _context2.sent;
-
-                if (res.status == 200) {
-                  this.i("This booking has been cancled!");
-                  this.list[index].status = 3;
-                } else {
-                  this.e();
-                }
-
-              case 4:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function updateStatus(_x2, _x3) {
-        return _updateStatus.apply(this, arguments);
-      }
-
-      return updateStatus;
-    }()
-  },
-  created: function created() {
-    var d = new Date();
-    var monthNumber = d.getMonth() + 1;
-    monthNumber = ("0" + monthNumber).slice(-2);
-    var dayNumber = d.getDate();
-    dayNumber = ("0" + dayNumber).slice(-2);
-    this.toDayDate = "".concat(d.getFullYear(), "-").concat(monthNumber, "-").concat(dayNumber);
-    this.getNewList(this.toDayDate);
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/canclebookinglist.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/canclebookinglist.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      list: [],
-      toDayDate: ''
-    };
-  },
-  methods: {
-    getCancleList: function () {
-      var _getCancleList = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(newDate) {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return this.callApi('get', "getCancleList/".concat(newDate));
-
-              case 2:
-                res = _context.sent;
-
-                if (res.status === 200) {
-                  this.list = res.data;
-                  console.log(this.list);
-                } else {
-                  this.swr();
-                }
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function getCancleList(_x) {
-        return _getCancleList.apply(this, arguments);
-      }
-
-      return getCancleList;
-    }(),
-    getSlots: function getSlots() {
-      // FORMATE THE DATE 
-      var d = new Date(this.toDayDate);
-      var monthNumber = d.getMonth() + 1;
-      monthNumber = ("0" + monthNumber).slice(-2);
-      var dayNumber = d.getDate();
-      dayNumber = ("0" + dayNumber).slice(-2);
-      this.toDayDate = "".concat(d.getFullYear(), "-").concat(monthNumber, "-").concat(dayNumber);
-      this.getCancleList(this.toDayDate);
-    },
-    updateStatus: function () {
-      var _updateStatus = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(status, index) {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.callApi('post', "updateStatus", {
-                  status: status,
-                  id: this.list[index].id
-                });
-
-              case 2:
-                res = _context2.sent;
-
-                if (res.status == 200) {
-                  this.i("This booking has been cancled!");
-                  this.list[index].status = 3;
-                } else {
-                  this.e();
-                }
-
-              case 4:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function updateStatus(_x2, _x3) {
-        return _updateStatus.apply(this, arguments);
-      }
-
-      return updateStatus;
-    }()
-  },
-  created: function created() {
-    var d = new Date();
-    var monthNumber = d.getMonth() + 1;
-    monthNumber = ("0" + monthNumber).slice(-2);
-    var dayNumber = d.getDate();
-    dayNumber = ("0" + dayNumber).slice(-2);
-    this.toDayDate = "".concat(d.getFullYear(), "-").concat(monthNumber, "-").concat(dayNumber);
-    this.getCancleList(this.toDayDate);
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/newbookinglist.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/newbookinglist.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      list: []
-    };
-  },
-  methods: {
-    getNewList: function () {
-      var _getNewList = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return this.callApi('get', 'getNewList');
-
-              case 2:
-                res = _context.sent;
-
-                if (res.status === 200) {
-                  this.list = res.data;
-                } else {
-                  this.swr();
-                }
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function getNewList() {
-        return _getNewList.apply(this, arguments);
-      }
-
-      return getNewList;
-    }(),
-    updateStatus: function () {
-      var _updateStatus = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(status, index) {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.callApi('post', "updateStatus", {
-                  status: status,
-                  id: this.list[index].id
-                });
-
-              case 2:
-                res = _context2.sent;
-
-                if (res.status == 200) {
-                  if (status == 1) {
-                    this.s("This booking has been approved!");
-                    this.list[index].status = 1;
-                  } else if (status == 3) {
-                    this.i("This booking has been cancled!");
-                    this.list[index].status = 3;
-                  }
-                } else {
-                  this.e();
-                }
-
-              case 4:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function updateStatus(_x, _x2) {
-        return _updateStatus.apply(this, arguments);
-      }
-
-      return updateStatus;
-    }()
-  },
-  created: function created() {
-    this.getNewList();
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/profile.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/profile.vue?vue&type=script&lang=js& ***!
@@ -2787,10 +2289,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _bookinglist_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bookinglist.vue */ "./resources/js/components/profile/bookinglist.vue");
-/* harmony import */ var _canclebookinglist_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./canclebookinglist.vue */ "./resources/js/components/profile/canclebookinglist.vue");
-/* harmony import */ var _servicelist_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./servicelist.vue */ "./resources/js/components/profile/servicelist.vue");
-/* harmony import */ var _newbookinglist_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./newbookinglist.vue */ "./resources/js/components/profile/newbookinglist.vue");
+/* harmony import */ var _servicelist_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./servicelist.vue */ "./resources/js/components/profile/servicelist.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2950,67 +2449,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    bookinglist: _bookinglist_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    canclebookinglist: _canclebookinglist_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    servicelist: _servicelist_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    newbookinglist: _newbookinglist_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    servicelist: _servicelist_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -3019,7 +2461,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       userInfo: [],
       edituserInfo: [],
       isEdit: false,
-      defultImage: '/uploads/pcpSlKaSylqS3Vj2WUvtVmghh8KyPwERrbGGamVP.jpeg',
+      defultImage: '/img/pic.png',
       crfObj: {
         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
       }
@@ -82510,666 +81952,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/bookinglist.vue?vue&type=template&id=38362a96&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/bookinglist.vue?vue&type=template&id=38362a96& ***!
-  \**********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "booked_date _text_center _box_shadow2",
-        attrs: { span: "24" }
-      },
-      [
-        _c("DatePicker", {
-          staticStyle: { width: "220px" },
-          attrs: {
-            type: "date",
-            placeholder: "Select date",
-            value: _vm.toDayDate
-          },
-          on: { "on-change": _vm.getSlots },
-          model: {
-            value: _vm.toDayDate,
-            callback: function($$v) {
-              _vm.toDayDate = $$v
-            },
-            expression: "toDayDate"
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _vm.list.length
-      ? _c(
-          "div",
-          { staticClass: "_profile_card_all" },
-          _vm._l(_vm.list, function(item, index) {
-            return _c("div", { key: index }, [
-              item.status == 1
-                ? _c(
-                    "div",
-                    {
-                      staticClass:
-                        "_profile_card _dis_flex _box_shadow2 _border_radious _mr_b30 "
-                    },
-                    [
-                      _c("div", { staticClass: "_profile_card_pic" }, [
-                        _c("img", {
-                          staticClass: "_profile_card_img",
-                          attrs: {
-                            src: item.service.image[0].imageUrl,
-                            alt: "",
-                            title: ""
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "_profile_card_name _flex_space _dis_flex"
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _c(
-                                    "router-link",
-                                    {
-                                      attrs: {
-                                        to: {
-                                          name: "details",
-                                          params: { id: item.service.id }
-                                        }
-                                      }
-                                    },
-                                    [_vm._v(_vm._s(item.service.title))]
-                                  )
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _vm._v("Booked by: "),
-                                  _c(
-                                    "router-link",
-                                    { attrs: { to: { name: "bprofile" } } },
-                                    [_vm._v(_vm._s(item.buyer_info.name))]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _vm._v(
-                                    "Extra Service : " +
-                                      _vm._s(
-                                        item.extraService.length ? "No " : "Yes"
-                                      )
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text" },
-                                [_vm._v("Date: " + _vm._s(item.bookingDate))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text" },
-                                [_vm._v("Time: " + _vm._s(item.bookingTime))]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "table_button_red",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.updateStatus(3, index)
-                                    }
-                                  }
-                                },
-                                [_vm._v("Cancle Booking")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_dis_flex _profile_card_doller" },
-                            [
-                              _c("div", { staticClass: "_1job_card_dollar" }, [
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass: "_1job_card_dollar_text _color"
-                                  },
-                                  [_vm._v(" " + _vm._s(item.totalPrice))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass: "_1job_card_dollar_sine _color"
-                                  },
-                                  [_vm._v("$")]
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ])
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.list.length == 0
-      ? _c(
-          "div",
-          {
-            staticClass: "booked_date _text_center _box_shadow2",
-            attrs: { span: "24" }
-          },
-          [_c("h2", [_vm._v("No Bookings This Day")])]
-        )
-      : _vm._e()
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/canclebookinglist.vue?vue&type=template&id=2178588a&":
-/*!****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/canclebookinglist.vue?vue&type=template&id=2178588a& ***!
-  \****************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "booked_date _text_center _box_shadow2",
-        attrs: { span: "24" }
-      },
-      [
-        _c("DatePicker", {
-          staticStyle: { width: "220px" },
-          attrs: {
-            type: "date",
-            placeholder: "Select date",
-            value: _vm.toDayDate
-          },
-          on: { "on-change": _vm.getSlots },
-          model: {
-            value: _vm.toDayDate,
-            callback: function($$v) {
-              _vm.toDayDate = $$v
-            },
-            expression: "toDayDate"
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _vm.list.length
-      ? _c(
-          "div",
-          { staticClass: "_profile_card_all" },
-          _vm._l(_vm.list, function(item, index) {
-            return _c("div", { key: index }, [
-              item.status == 3
-                ? _c(
-                    "div",
-                    {
-                      staticClass:
-                        "_profile_card _dis_flex _box_shadow2 _border_radious _mr_b30 "
-                    },
-                    [
-                      _c("div", { staticClass: "_profile_card_pic" }, [
-                        _c("img", {
-                          staticClass: "_profile_card_img",
-                          attrs: {
-                            src: item.service.image[0].imageUrl,
-                            alt: "",
-                            title: ""
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "_profile_card_name _flex_space _dis_flex"
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _c(
-                                    "router-link",
-                                    {
-                                      attrs: {
-                                        to: {
-                                          name: "details",
-                                          params: { id: item.service.id }
-                                        }
-                                      }
-                                    },
-                                    [_vm._v(_vm._s(item.service.title))]
-                                  )
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _vm._v("Booked by: "),
-                                  _c(
-                                    "router-link",
-                                    { attrs: { to: { name: "bprofile" } } },
-                                    [_vm._v(_vm._s(item.buyer_info.name))]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _vm._v(
-                                    "Extra Service : " +
-                                      _vm._s(
-                                        item.extraService.length ? "No " : "Yes"
-                                      )
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text" },
-                                [_vm._v("Date: " + _vm._s(item.bookingDate))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text" },
-                                [_vm._v("Time: " + _vm._s(item.bookingTime))]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(0, true),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_dis_flex _profile_card_doller" },
-                            [
-                              _c("div", { staticClass: "_1job_card_dollar" }, [
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass: "_1job_card_dollar_text _color"
-                                  },
-                                  [_vm._v(" " + _vm._s(item.totalPrice))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass: "_1job_card_dollar_sine _color"
-                                  },
-                                  [_vm._v("$")]
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ])
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.list.length == 0
-      ? _c(
-          "div",
-          {
-            staticClass: "booked_date _text_center _box_shadow2",
-            attrs: { span: "24" }
-          },
-          [_c("h2", [_vm._v("No Canceled Bookings This Day")])]
-        )
-      : _vm._e()
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "_profile_card_title _flex_space" }, [
-      _c(
-        "button",
-        {
-          staticClass: "table_button_red",
-          attrs: { type: "button", disabled: "" }
-        },
-        [_vm._v("Canceled")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/newbookinglist.vue?vue&type=template&id=9786e4f0&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/newbookinglist.vue?vue&type=template&id=9786e4f0& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.list.length
-      ? _c(
-          "div",
-          { staticClass: "_profile_card_all" },
-          _vm._l(_vm.list, function(item, index) {
-            return _c("div", { key: index }, [
-              item.status == 0
-                ? _c(
-                    "div",
-                    {
-                      staticClass:
-                        "_profile_card _dis_flex _box_shadow2 _border_radious _mr_b30 "
-                    },
-                    [
-                      _c("div", { staticClass: "_profile_card_pic" }, [
-                        _c("img", {
-                          staticClass: "_profile_card_img",
-                          attrs: {
-                            src: item.service.image[0].imageUrl,
-                            alt: "",
-                            title: ""
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "_profile_card_name _flex_space _dis_flex"
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _c(
-                                    "router-link",
-                                    {
-                                      attrs: {
-                                        to: {
-                                          name: "details",
-                                          params: { id: item.service.id }
-                                        }
-                                      }
-                                    },
-                                    [_vm._v(_vm._s(item.service.title))]
-                                  )
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _vm._v("Booked by: "),
-                                  _c(
-                                    "router-link",
-                                    { attrs: { to: { name: "bprofile" } } },
-                                    [_vm._v(_vm._s(item.buyer_info.name))]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text_link" },
-                                [
-                                  _vm._v(
-                                    "Extra Service : " +
-                                      _vm._s(
-                                        item.extraService.length ? "No " : "Yes"
-                                      )
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text" },
-                                [_vm._v("Date: " + _vm._s(item.bookingDate))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "_profile_card_name_text" },
-                                [_vm._v("Time: " + _vm._s(item.bookingTime))]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_profile_card_title _flex_space" },
-                            [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "table_button",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.updateStatus(1, index)
-                                    }
-                                  }
-                                },
-                                [_vm._v("Approve")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "table_button_red",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.updateStatus(3, index)
-                                    }
-                                  }
-                                },
-                                [_vm._v("Cancle")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "_dis_flex _profile_card_doller" },
-                            [
-                              _c("div", { staticClass: "_1job_card_dollar" }, [
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass: "_1job_card_dollar_text _color"
-                                  },
-                                  [_vm._v(" " + _vm._s(item.totalPrice))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass: "_1job_card_dollar_sine _color"
-                                  },
-                                  [_vm._v("$")]
-                                )
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ])
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.list.length == 0
-      ? _c(
-          "div",
-          {
-            staticClass: "booked_date _text_center _box_shadow2",
-            attrs: { span: "24" }
-          },
-          [_c("h2", [_vm._v("No New Bookings ")])]
-        )
-      : _vm._e()
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/profile.vue?vue&type=template&id=747d8248&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/profile.vue?vue&type=template&id=747d8248& ***!
@@ -83272,7 +82054,6 @@ var render = function() {
               _c("div", { staticClass: "Details_profie_title" }, [
                 !_vm.isEdit
                   ? _c("h3", { staticClass: "_title3" }, [
-                      _vm._v(_vm._s(_vm.userInfo.name) + " "),
                       _vm.authInfo.id == _vm.user_id
                         ? _c(
                             "span",
@@ -83286,7 +82067,7 @@ var render = function() {
                             },
                             [
                               _c("i", { staticClass: "fas fa-pencil-alt" }),
-                              _vm._v(" Edit")
+                              _vm._v("Edit")
                             ]
                           )
                         : _vm._e()
@@ -83295,31 +82076,6 @@ var render = function() {
                 _vm._v(" "),
                 _vm.isEdit
                   ? _c("p", { staticClass: "_dis_flex align-items-center" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.edituserInfo.name,
-                            expression: "edituserInfo.name"
-                          }
-                        ],
-                        attrs: { type: "text" },
-                        domProps: { value: _vm.edituserInfo.name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.edituserInfo,
-                              "name",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
                       _c(
                         "span",
                         {
@@ -83346,12 +82102,12 @@ var render = function() {
                     _c(
                       "p",
                       { staticClass: "Details_pro_renge_name _flex_space" },
-                      [_vm._v("Location")]
+                      [_vm._v("First Name")]
                     ),
                     _vm._v(" "),
                     !_vm.isEdit
                       ? _c("p", { staticClass: "Details_pro_renge_num" }, [
-                          _vm._v(_vm._s(_vm.userInfo.location))
+                          _vm._v(_vm._s(_vm.userInfo.firstName))
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -83362,12 +82118,12 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.edituserInfo.location,
-                                expression: "edituserInfo.location"
+                                value: _vm.edituserInfo.firstName,
+                                expression: "edituserInfo.firstName"
                               }
                             ],
                             attrs: { type: "text" },
-                            domProps: { value: _vm.edituserInfo.location },
+                            domProps: { value: _vm.edituserInfo.firstName },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
@@ -83375,7 +82131,7 @@ var render = function() {
                                 }
                                 _vm.$set(
                                   _vm.edituserInfo,
-                                  "location",
+                                  "firstName",
                                   $event.target.value
                                 )
                               }
@@ -83397,61 +82153,43 @@ var render = function() {
                     _c(
                       "p",
                       { staticClass: "Details_pro_renge_name _flex_space" },
-                      [_vm._v("Language")]
+                      [_vm._v("Last Name")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "Details_pro_renge_num" }, [
-                      _vm.isEdit
-                        ? _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.edituserInfo.language,
-                                  expression: "edituserInfo.language"
-                                }
-                              ],
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.edituserInfo,
-                                    "language",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
+                    !_vm.isEdit
+                      ? _c("p", { staticClass: "Details_pro_renge_num" }, [
+                          _vm._v(_vm._s(_vm.userInfo.lastName))
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isEdit
+                      ? _c("p", { staticClass: "Details_pro_renge_num" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.edituserInfo.lastName,
+                                expression: "edituserInfo.lastName"
                               }
-                            },
-                            [
-                              _c("option", { attrs: { value: "volvo" } }, [
-                                _vm._v("English")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "saab" } }, [
-                                _vm._v("Spanish")
-                              ])
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      !_vm.isEdit
-                        ? _c("p", { staticClass: "boi_text" }, [
-                            _vm._v(_vm._s(_vm.userInfo.language))
-                          ])
-                        : _vm._e()
-                    ])
+                            ],
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.edituserInfo.lastName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.edituserInfo,
+                                  "lastName",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      : _vm._e()
                   ]
                 ),
                 _vm._v(" "),
@@ -83459,170 +82197,19 @@ var render = function() {
                   "div",
                   { staticClass: "Details_pro_renge _dis_flex _b_color2" },
                   [
-                    _c("i", { staticClass: "fas fa-exclamation-circle" }),
+                    _c("i", { staticClass: "far fa-envelope" }),
                     _vm._v(" "),
                     _c(
                       "p",
                       { staticClass: "Details_pro_renge_name _flex_space" },
-                      [_vm._v("Bio")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "boi_text_div _w_100" }, [
-                      _vm.isEdit
-                        ? _c("p", { staticClass: "boi_text" }, [
-                            _c("textarea", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.edituserInfo.bio,
-                                  expression: "edituserInfo.bio"
-                                }
-                              ],
-                              attrs: { rows: "4" },
-                              domProps: { value: _vm.edituserInfo.bio },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.edituserInfo,
-                                    "bio",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            })
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      !_vm.isEdit
-                        ? _c("p", { staticClass: "boi_text" }, [
-                            _vm._v(_vm._s(_vm.userInfo.bio))
-                          ])
-                        : _vm._e()
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "Details_pro_renge _dis_flex _b_color2" },
-                  [
-                    _c("i", { staticClass: "far fa-money-bill-alt" }),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      { staticClass: "Details_pro_renge_name _flex_space" },
-                      [_vm._v("Payment info")]
+                      [_vm._v("Position")]
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "boi_text_div _w_100" }, [
                       _c("div", { staticClass: "Pro_details" }, [
-                        _vm.isEdit
-                          ? _c(
-                              "p",
-                              { staticClass: "boi_text _text_overflow" },
-                              [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.edituserInfo.paymentInfo,
-                                      expression: "edituserInfo.paymentInfo"
-                                    }
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: {
-                                    value: _vm.edituserInfo.paymentInfo
-                                  },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.edituserInfo,
-                                        "paymentInfo",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        !_vm.isEdit
-                          ? _c(
-                              "p",
-                              { staticClass: "boi_text _text_overflow" },
-                              [_vm._v(_vm._s(_vm.userInfo.paymentInfo))]
-                            )
-                          : _vm._e()
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "Details_pro_renge _dis_flex _b_color2" },
-                  [
-                    _c("i", { staticClass: "far fa-money-bill-alt" }),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      { staticClass: "Details_pro_renge_name _flex_space" },
-                      [_vm._v("Billing info")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "boi_text_div _w_100" }, [
-                      _c("div", { staticClass: "Pro_details" }, [
-                        _vm.isEdit
-                          ? _c(
-                              "p",
-                              { staticClass: "boi_text _text_overflow" },
-                              [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.edituserInfo.billingInfo,
-                                      expression: "edituserInfo.billingInfo"
-                                    }
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: {
-                                    value: _vm.edituserInfo.billingInfo
-                                  },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.edituserInfo,
-                                        "billingInfo",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        !_vm.isEdit
-                          ? _c(
-                              "p",
-                              { staticClass: "boi_text _text_overflow" },
-                              [_vm._v(_vm._s(_vm.userInfo.billingInfo))]
-                            )
-                          : _vm._e()
+                        _c("p", { staticClass: "boi_text _text_overflow" }, [
+                          _vm._v(_vm._s(_vm.userInfo.position))
+                        ])
                       ])
                     ])
                   ]
@@ -83707,65 +82294,6 @@ var render = function() {
                       ])
                     ])
                   ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "Details_pro_renge _dis_flex _b_color2" },
-                  [
-                    _c("i", { staticClass: "fas fa-home" }),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      { staticClass: "Details_pro_renge_name _flex_space" },
-                      [_vm._v("Country")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "boi_text_div _w_100" }, [
-                      _c("div", { staticClass: "Pro_details" }, [
-                        _vm.isEdit
-                          ? _c(
-                              "p",
-                              { staticClass: "boi_text _text_overflow" },
-                              [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.edituserInfo.country,
-                                      expression: "edituserInfo.country"
-                                    }
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: { value: _vm.edituserInfo.country },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.edituserInfo,
-                                        "country",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        !_vm.isEdit
-                          ? _c(
-                              "p",
-                              { staticClass: "boi_text _text_overflow" },
-                              [_vm._v(_vm._s(_vm.userInfo.country))]
-                            )
-                          : _vm._e()
-                      ])
-                    ])
-                  ]
                 )
               ]),
               _vm._v(" "),
@@ -83783,79 +82311,26 @@ var render = function() {
               { staticClass: "_box_shadow pro_menu _border_radious " },
               [
                 _c("ul", { staticClass: "pro_menu_list" }, [
-                  _c(
-                    "li",
-                    {
-                      class: _vm.sellerTab == 1 ? "pro_menu_active" : "",
-                      on: {
-                        click: function($event) {
-                          _vm.sellerTab = 1
-                        }
-                      }
-                    },
-                    [_vm._v("Service")]
-                  ),
-                  _vm._v(" "),
                   _vm.authInfo.id == _vm.user_id
                     ? _c(
                         "li",
                         {
-                          class: _vm.sellerTab == 2 ? "pro_menu_active" : "",
+                          class: _vm.sellerTab == 1 ? "pro_menu_active" : "",
                           on: {
                             click: function($event) {
-                              _vm.sellerTab = 2
+                              _vm.sellerTab = 1
                             }
                           }
                         },
-                        [_vm._v("New Bookings")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.authInfo.id == _vm.user_id
-                    ? _c(
-                        "li",
-                        {
-                          class: _vm.sellerTab == 3 ? "pro_menu_active" : "",
-                          on: {
-                            click: function($event) {
-                              _vm.sellerTab = 3
-                            }
-                          }
-                        },
-                        [_vm._v("Bookings")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.authInfo.id == _vm.user_id
-                    ? _c(
-                        "li",
-                        {
-                          class: _vm.sellerTab == 4 ? "pro_menu_active" : "",
-                          on: {
-                            click: function($event) {
-                              _vm.sellerTab = 4
-                            }
-                          }
-                        },
-                        [_vm._v("Canceled Bookings")]
+                        [_vm._v("Service")]
                       )
                     : _vm._e()
                 ])
               ]
             ),
             _vm._v(" "),
-            _vm.sellerTab == 1 ? _c("servicelist") : _vm._e(),
-            _vm._v(" "),
-            _vm.sellerTab == 2 && _vm.authInfo.id == _vm.user_id
-              ? _c("newbookinglist")
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.sellerTab == 3 && _vm.authInfo.id == _vm.user_id
-              ? _c("bookinglist")
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.sellerTab == 4 && _vm.authInfo.id == _vm.user_id
-              ? _c("canclebookinglist")
+            _vm.sellerTab == 1 && _vm.authInfo.id == _vm.user_id
+              ? _c("servicelist")
               : _vm._e()
           ],
           1
@@ -83908,7 +82383,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "Details_pro_renge Details_pro_renge2   _b_color2 _text_center"
+          "Details_pro_renge Details_pro_renge2   _b_color _text_center"
       },
       [
         _c("p", { staticClass: "_contect_me _color_green" }, [
@@ -101242,213 +99717,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_passwordresetGetEmail_vue_vue_type_template_id_3db16142___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_passwordresetGetEmail_vue_vue_type_template_id_3db16142___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/bookinglist.vue":
-/*!*********************************************************!*\
-  !*** ./resources/js/components/profile/bookinglist.vue ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _bookinglist_vue_vue_type_template_id_38362a96___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bookinglist.vue?vue&type=template&id=38362a96& */ "./resources/js/components/profile/bookinglist.vue?vue&type=template&id=38362a96&");
-/* harmony import */ var _bookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bookinglist.vue?vue&type=script&lang=js& */ "./resources/js/components/profile/bookinglist.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _bookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _bookinglist_vue_vue_type_template_id_38362a96___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _bookinglist_vue_vue_type_template_id_38362a96___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/profile/bookinglist.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/bookinglist.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/profile/bookinglist.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_bookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./bookinglist.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/bookinglist.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_bookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/bookinglist.vue?vue&type=template&id=38362a96&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/profile/bookinglist.vue?vue&type=template&id=38362a96& ***!
-  \****************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_bookinglist_vue_vue_type_template_id_38362a96___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./bookinglist.vue?vue&type=template&id=38362a96& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/bookinglist.vue?vue&type=template&id=38362a96&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_bookinglist_vue_vue_type_template_id_38362a96___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_bookinglist_vue_vue_type_template_id_38362a96___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/canclebookinglist.vue":
-/*!***************************************************************!*\
-  !*** ./resources/js/components/profile/canclebookinglist.vue ***!
-  \***************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _canclebookinglist_vue_vue_type_template_id_2178588a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./canclebookinglist.vue?vue&type=template&id=2178588a& */ "./resources/js/components/profile/canclebookinglist.vue?vue&type=template&id=2178588a&");
-/* harmony import */ var _canclebookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./canclebookinglist.vue?vue&type=script&lang=js& */ "./resources/js/components/profile/canclebookinglist.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _canclebookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _canclebookinglist_vue_vue_type_template_id_2178588a___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _canclebookinglist_vue_vue_type_template_id_2178588a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/profile/canclebookinglist.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/canclebookinglist.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/profile/canclebookinglist.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_canclebookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./canclebookinglist.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/canclebookinglist.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_canclebookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/canclebookinglist.vue?vue&type=template&id=2178588a&":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/components/profile/canclebookinglist.vue?vue&type=template&id=2178588a& ***!
-  \**********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_canclebookinglist_vue_vue_type_template_id_2178588a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./canclebookinglist.vue?vue&type=template&id=2178588a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/canclebookinglist.vue?vue&type=template&id=2178588a&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_canclebookinglist_vue_vue_type_template_id_2178588a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_canclebookinglist_vue_vue_type_template_id_2178588a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/newbookinglist.vue":
-/*!************************************************************!*\
-  !*** ./resources/js/components/profile/newbookinglist.vue ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _newbookinglist_vue_vue_type_template_id_9786e4f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./newbookinglist.vue?vue&type=template&id=9786e4f0& */ "./resources/js/components/profile/newbookinglist.vue?vue&type=template&id=9786e4f0&");
-/* harmony import */ var _newbookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./newbookinglist.vue?vue&type=script&lang=js& */ "./resources/js/components/profile/newbookinglist.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _newbookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _newbookinglist_vue_vue_type_template_id_9786e4f0___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _newbookinglist_vue_vue_type_template_id_9786e4f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/profile/newbookinglist.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/newbookinglist.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/profile/newbookinglist.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_newbookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./newbookinglist.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/newbookinglist.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_newbookinglist_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/profile/newbookinglist.vue?vue&type=template&id=9786e4f0&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/profile/newbookinglist.vue?vue&type=template&id=9786e4f0& ***!
-  \*******************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_newbookinglist_vue_vue_type_template_id_9786e4f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./newbookinglist.vue?vue&type=template&id=9786e4f0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/newbookinglist.vue?vue&type=template&id=9786e4f0&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_newbookinglist_vue_vue_type_template_id_9786e4f0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_newbookinglist_vue_vue_type_template_id_9786e4f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

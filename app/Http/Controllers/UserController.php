@@ -31,7 +31,7 @@ class UserController extends Controller
             ],422);
         }
 
-        if((User::where([['email', $request->email],['isActive' , 0 ]])->count())==0){
+        if((User::where([['email', $request->email] , ['isActive' , 0 ] ])->count())==0){
             return response()->json([
                 'msg' => "Please Wait for the Admin Activation!",
             ],422);
@@ -105,5 +105,52 @@ class UserController extends Controller
         return $flag;
            
         }
+
+
+        // Profile 
+
+    public function getProfileInfo($id){
+        return User::where('id',$id)->first();
+    }
+
+    public function updateUserInfo(Request $request){
+        if(!Auth::check()){
+           return response()->json([
+             'message' => "You are not Authenticate User!",
+           ], 402);
+        }
+        $id = Auth::user()->id;
+        $data = $request->all();
+        if($id!=$data['id']){
+           return response()->json([
+              'message' => "You are not Authenticate User!",
+            ], 402);
+  
+        }
+        return User::where('id',$id)->update($data);
+    }
+    public function getUserImage($request){
+        if(!Auth::check()){
+           return response()->json([
+             'message' => "You are not Authenticate User!",
+           ], 402);
+        }
+        $id = Auth::user()->id;
+        request()->file('img')->store('uploads');
+        $pic= "/uploads/".$request->img->hashName();
+        $data =[
+           'image' => $pic,
+        ];
+        $flag = $this->query->updateUserInfo($id,$data);
+        if($flag==0){
+           if(!Auth::check()){
+              return response()->json([
+                'message' => "Server Error! Couldn't update Image!",
+              ], 403);
+           }
+        }
+        return $pic;
+        
+    }
     
 }

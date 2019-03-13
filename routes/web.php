@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { 
     return view('welcome');
 });
 
@@ -23,6 +23,12 @@ Route::post("/app/login","UserController@login");
 Route::post("/app/passwordresetGetEmail","UserController@passwordresetGetEmail");
 Route::post("/app/resetPassword","UserController@resetPassword");
 Route::post('/app/matchPasswordLink','UserController@matchPasswordLink');
+
+// Profile
+
+Route::get( 'app/getProfileInfo/{id}', 'UserController@getProfileInfo');
+Route::post( 'app/updateUserInfo', 'UserController@updateUserInfo');
+Route::post( 'app/getUserImage', 'UserController@getUserImage');
 
 
 
