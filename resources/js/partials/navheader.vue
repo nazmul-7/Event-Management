@@ -16,7 +16,9 @@
                             <li><router-link :to="{path:'/'}" >CONTACT</router-link></li>
                             <li v-if="!authInfo" ><router-link :to="{path:'/login'}" >LOGIN</router-link></li>
                             <li v-if="!authInfo" ><router-link :to="{path:'/registration'}" >REGISTRATION</router-link></li>
-                            <li v-if="authInfo" ><router-link :to="{name:'profile',params:{ id:authInfo.id}}" >{{this.authInfo.firstName}}</router-link></li>
+                            <li v-if="authInfo.position!='admin'" ><router-link  :to="{name:'profile',params:{ id:authInfo.id}}" >{{this.authInfo.firstName}}</router-link></li>
+                            <li v-if="authInfo.position =='admin'"><router-link :to="{path:'/eventCreate'}" >Create an event</router-link></li>
+                            <li v-if="authInfo.position =='admin'"><router-link :to="{name:'dashBoard',params:{ id:authInfo.id}}" >{{this.authInfo.firstName}}(Admin)</router-link></li>
                             <li v-if="authInfo" ><a href="/logout"  >LOGOUT</a></li>
                         </ul>
                     </div>

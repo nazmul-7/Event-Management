@@ -1,7 +1,7 @@
 <template>
     <div class="login _mt63">
         <div class="container">
-            <div class="row justify-content-center" v-if="status">
+            <div class="row justify-content-center" >
                 <div class="col-12 col-md-5"  >
                     <div class="login_main _box_shadow">
                         <h3 class="_title2">Password Reset</h3>
@@ -64,26 +64,31 @@ export default {
         },
         async tokenVarification(token){
             const res = await this.callApi('post','matchPasswordLink',{token:token})
-            if(res.status===201){
+            if(res.status===200){
                this.status = true;
+               console.log(this.status);
                console.log(res.data)
-               this.formData.email = res.data.email
+               this.formData.email = res.data.token.email
 
             }
             else if (res.status ===401){
+        
                 this.e(res.data.msg);
+                 this.$router.push("/")
             }
             else{
                 this.swr();
+                 this.$router.push("/")
             }
         }
     },
     created(){
-        let token = this.$route.params.token
-        this.tokenVarification(token);
-        if(!this.status){
+        let token = this.$route.query.token
+        if(!token){
             this.$router.push("/")
         }
+        this.tokenVarification(token);
+
         
     },
 

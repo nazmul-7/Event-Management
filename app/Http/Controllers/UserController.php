@@ -24,18 +24,21 @@ class UserController extends Controller
         return User::create($data);
     }
 
+
+
     public function login(Request $request){
         if((User::where('email', $request->email)->count())==0){
             return response()->json([
                 'msg' => "Email doesn't exist!",
             ],422);
         }
-
-        if((User::where([['email', $request->email] , ['isActive' , 0 ] ])->count())==0){
+        $flag = User::where([['email',$request->email],["isActive",0]])->count();
+        if($flag){
             return response()->json([
                 'msg' => "Please Wait for the Admin Activation!",
             ],422);
         }
+
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password ])) {
            return Auth::user(); 
          }
@@ -78,8 +81,8 @@ class UserController extends Controller
 
     public function matchPasswordLink(Request $request){
         $token = $request->token;
-        \Log::info("Token is running");
-        // get the row from reset table matching this token  http://laravel-vue-authentication.test/passwordreset/$2y$10$D8PB0yYEkbapLjjyFOgozus3BG3.RpBNDgWJJ/hPjFFu9zKDqrQPO
+        
+        // get the row from reset table matching this token  http://event-booking.test/passwordreset/check?token=$2y$10$KRDnLaCXFF.JIBUGGaiMWOn1EN8jrtXIVsG3W.a3NMsxiOOIBNcdy
         $isTokenFound = \DB::table('password_resets')->where('token',$token)->first();
         // if token is valid return data only like this 
         if(!$isTokenFound){
@@ -87,22 +90,25 @@ class UserController extends Controller
                 'msg' => "token doesn't exist!",
             ],401);
         }
-        return $isTokenFound;
+        return response()->json([
+            "token"=>$isTokenFound,
+        ],200);
     }
     public function resetPassword(Request $request){
+        
         $this->validate($request, [
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        $flag = User::where("id",1)->update(['password' => Hash::make($request->password)]);
+        $flag = User::where("email",$request->email)->update(['password' => Hash::make($request->password)]);
         if(!$flag){
             return response()->json([
                 'msg' => "Email doesn't exist!",
             ],401);
         }
 
-        \DB::table('password_resets')->where('email',$request->email)->delete();
-        return $flag;
+        return \DB::table('password_resets')->where('email',$request->email)->delete();
+         
            
         }
 
@@ -129,7 +135,7 @@ class UserController extends Controller
         }
         return User::where('id',$id)->update($data);
     }
-    public function getUserImage($request){
+    public function getUserImage(Request $request){
         if(!Auth::check()){
            return response()->json([
              'message' => "You are not Authenticate User!",
@@ -141,16 +147,11 @@ class UserController extends Controller
         $data =[
            'image' => $pic,
         ];
-        $flag = $this->query->updateUserInfo($id,$data);
-        if($flag==0){
-           if(!Auth::check()){
-              return response()->json([
-                'message' => "Server Error! Couldn't update Image!",
-              ], 403);
-           }
-        }
+        User::where('id',$id)->update($data);
         return $pic;
         
     }
+
+    
     
 }

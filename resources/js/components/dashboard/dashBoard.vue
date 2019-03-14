@@ -49,14 +49,7 @@
                             </div>
 
                             <div class="Details_profie_rating">
-                                <ul class="_1job_card_rating_ul">
-                                    <li class="_color"><i class="fas fa-star"></i></li>
-                                    <li class="_color"><i class="fas fa-star"></i></li>
-                                    <li class="_color"><i class="fas fa-star"></i></li>
-                                    <li class=""><i class="fas fa-star"></i></li>
-                                    <li class=""><i class="fas fa-star"></i></li>
-                                    <li class="_1job_card_rating_num">(2k+)</li>
-                                </ul>
+                                
                             </div>
 
                             <div class="Details_profie_location">
@@ -121,32 +114,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="Details_pro_renge _dis_flex _b_color2">
-                                    <i class="fas fa-phone"></i>
-
-                                    <p class="Details_pro_renge_name _flex_space">Total Woking Hour(running week )</p>
-
-                                    <div class="boi_text_div _w_100">
-                                        <div class="Pro_details">
-                                           
-                                            <p  class="boi_text _text_overflow text-center ">{{totalRunningTime}} Hours </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="Details_pro_renge _dis_flex _b_color2">
-                                    <i class="fas fa-phone"></i>
-
-                                    <p class="Details_pro_renge_name _flex_space">Total Woking Hour(all week )</p>
-
-                                    <div class="boi_text_div _w_100">
-                                        <div class="Pro_details">
-                                            <p v-if="isEdit" class="boi_text _text_overflow">
-                                                <input type="text" v-model="edituserInfo.phone">
-                                            </p>
-                                            <p  class="boi_text _text_overflow text-center">{{totalRunningTime}} Hours</p>
-                                        </div>
-                                    </div>
-                                </div>
+                             
 
                                 </div>
 
@@ -159,13 +127,17 @@
 
                         <!--~~~~~~~ Profile Details ~~~~~~~-->
                     <div class="col-12 col-md-8 col-lg-8">
-                        <div class="_box_shadow pro_menu _border_radious " v-if=" authInfo.id==user_id"  >
-                            <!-- <ul class="pro_menu_list">
-                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==1)? 'pro_menu_active':''" @click="sellerTab=1">Service</li>
-                            </ul> -->
+                        <div class="_box_shadow pro_menu _border_radious " v-if=" authInfo.id==user_id "  >
+                            <ul class="pro_menu_list">
+                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==1)? 'pro_menu_active':''" @click="sellerTab=1">Running Event</li>
+                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==2)? 'pro_menu_active':''" @click="sellerTab=2">Old Event</li>
+                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==3)? 'pro_menu_active':''" @click="sellerTab=3">All User List</li>
+                            </ul>
                            
                         </div>
-                        <servicelist  v-if="sellerTab==1 && authInfo.id==user_id" ></servicelist>
+                        <runningEventList  v-if="sellerTab==1 && authInfo.id==user_id" ></runningEventList>
+                        <oldEventList  v-if="sellerTab==2 && authInfo.id==user_id" ></oldEventList>
+                        <userList  v-if="sellerTab==3 && authInfo.id==user_id" ></userList>
                     </div>
                         <!--~~~~~~~ Profile Details ~~~~~~~-->
                 </div>
@@ -176,13 +148,17 @@
 
 <script>
 
-import servicelist from './servicelist.vue'
+import runningEventList from './servicelist.vue'
+import oldEventList from './oldRunningWeek.vue'
+import userList from './userList.vue'
 
 
         
 export default {
     components:{
-        servicelist,
+        runningEventList,
+        oldEventList,
+        userList,
 
     },
     data(){
@@ -244,6 +220,9 @@ export default {
 
     },
     created(){
+        if(this.authInfo.position!='admin'){
+            this.$router.push("/")
+        }
         this.getProfileInfo();
           this.getTotalWokingHours();
     }

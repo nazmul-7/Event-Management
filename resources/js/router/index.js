@@ -11,6 +11,9 @@ import passwordreset from '../components/passwordreset.vue';
 import registration from '../components/registration.vue';
 import schedule from '../components/schedule.vue';
 import profile from '../components/profile/profile.vue';
+import dashBoard from '../components/dashBoard/dashBoard.vue';
+import eventCreate from '../components/eventCreate.vue';
+import eventEdit from '../components/eventEdit.vue';
 
 
 
@@ -74,7 +77,29 @@ export default new Router({
 
     },
     {
-      path: '/registration',
+      path: '/dashBoard/:id',
+      name: 'dashBoard',
+      component: dashBoard,
+      meta: {
+          guest: true,
+          allowedUserType: ['All'],
+          title: 'DashBoard',
+      }
+
+    },
+    {
+      path: '/eventEdit/:id',
+      name: 'eventEdit',
+      component: eventEdit,
+      meta: {
+          guest: true,
+          allowedUserType: ['All'],
+          title: 'Event Edit',
+      }
+
+    },
+    {
+      path: '/registration', 
       name: 'registration',
       component: registration,
       meta: {
@@ -92,6 +117,17 @@ export default new Router({
           guest: true,
           allowedUserType: ['All'],
           title: 'Schedule',
+      }
+
+    },
+    {
+      path: '/eventCreate',
+      name: 'eventCreate',
+      component: eventCreate,
+      meta: {
+          guest: true,
+          allowedUserType: ['All'],
+          title: 'Event Create',
       }
 
     },

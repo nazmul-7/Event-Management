@@ -29,6 +29,27 @@ Route::post('/app/matchPasswordLink','UserController@matchPasswordLink');
 Route::get( 'app/getProfileInfo/{id}', 'UserController@getProfileInfo');
 Route::post( 'app/updateUserInfo', 'UserController@updateUserInfo');
 Route::post( 'app/getUserImage', 'UserController@getUserImage');
+Route::get( 'app/getWorkingEventList', 'EventController@getWorkingEventList');
+Route::get( 'app/getTotalWokingHours', 'EventController@getTotalWokingHours');
+
+
+
+// Event 
+
+Route::post( 'app/eventRegistration', 'EventController@eventRegistration');
+Route::post( 'app/applyInEvent', 'EventController@applyInEvent');
+Route::post( 'app/updateEventStatus', 'EventController@updateEventStatus');
+Route::get( 'app/getRunningEvents', 'EventController@getRunningEvents');
+
+// a
+Route::get( 'app/getAllWorkingEventList', 'EventController@getAllWorkingEventList');
+Route::get( 'app/getUserList', 'EventController@getUserList');
+Route::get( 'app/getAllOldEventList', 'EventController@getAllOldEventList');
+Route::post( 'app/getServiceDetails', 'EventController@getServiceDetails');
+Route::post( 'app/eventUpdate', 'EventController@eventUpdate');
+Route::post( 'app/updateUser', 'EventController@updateUser');
+Route::post( 'app/deleteUser', 'EventController@deleteUser');
+
 
 
 

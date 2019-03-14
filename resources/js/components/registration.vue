@@ -151,6 +151,7 @@ export default {
             }
             else {
                 this.swr();
+                this.$router.push('\login');
             }
         }
 

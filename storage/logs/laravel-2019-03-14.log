@@ -1,0 +1,15 @@
+[2019-03-14 17:31:53] local.INFO: array (
+  'password' => '123456',
+  'password_confirmation' => '123456',
+)  
+[2019-03-14 17:34:12] local.INFO: array (
+  'email' => 'nazmulchowdhury4@gmail.com',
+  'password' => '123456',
+  'password_confirmation' => '123456',
+)  
+[2019-03-14 17:35:30] local.INFO: $2y$10$KRDnLaCXFF.JIBUGGaiMWOn1EN8jrtXIVsG3W.a3NMsxiOOIBNcdy  
+[2019-03-14 17:36:16] local.INFO: array (
+  'email' => 'kamran@gmail.com',
+  'password' => '1234568',
+  'password_confirmation' => '1234568',
+)  
