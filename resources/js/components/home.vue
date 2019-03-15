@@ -1,69 +1,165 @@
 <template>
-    <div>
-        <div class="_2header_all _text_center">
-			<div class="_2header">
-				<p class="_2header_welcome">WELCOME TO MARVALOUS CREATIONS</p>
-
-				<h2 class="_2header_des">DESIGN YOUR T-SHIRT</h2>
-
-				<p class="_2header_text"><i>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed  <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem, sed do eiusmod</i></p>
-
-				<div class="_2header_button">
-					<button class="_btn _bg" type="button">SHOP NOW</button>
-				</div>
-
-				<div class="_2header_scroll bounce animated">
-					<p>Scroll down for details</p>
-					<i class="fas fa-angle-double-down"></i>
-				</div>
-			</div>
-		</div>
-			<!--========== HEADER ==========-->
-
-			<!--========== GRAPHIC ==========-->
-		<div class="graphic">
+	<div>
+		<div class="home _mt_110">
 			<div class="container">
-				<h2 class="graphic_one"><i>WELCOME TO MARVALOUS CREATIONS</i></h2>
+				<div class="home_all _box_shadow _bg _border_radious" v-if="list.length" >
+					<slick
+						ref="slick"
+						:options="slickOptions"
+						@afterChange="handleAfterChange"
+						@beforeChange="handleBeforeChange"
+						@breakpoint="handleBreakpoint"
+						@destroy="handleDestroy"
+						@edge="handleEdge"
+						@init="handleInit"
+						@reInit="handleReInit"
+						@setPosition="handleSetPosition"
+						@swipe="handleSwipe"
+						@lazyLoaded="handleLazyLoaded"
+						@lazyLoadError="handleLazeLoadError">
+							<!-- ITMES -->
+						<div v-for="(item,index) in list" :key="index" v-if="item.position!='admin'"  >
+							<a   >
+								<div class="row">
+									<div class="col-md-6 home_pic">
+										<img class="home_img" :src="(item.image)? item.image: defultImage" alt="">
+									</div>	
+									<div class="col-md-6 home_about">
+										<p class="_title2">About User</p>
 
-				<div class="title">
-					<h2 class="graphic_title">Graphic Design Business Specializing in <span class="_color graphic_title_SPAN">T-SHIRTS</span></h2>
+										<div class="home_about_details _dis_flex">
+											<p class="home_pro_title">Name</p>	
+											<p class="home_pro_num">{{item.firstName}} {{item.lastName}} </p>	
+										</div>
 
-					<div class="line _bg"></div>
-				</div>
-
-				<div class="row graphic_row">
-					<div class="col-12 col-md-5">
-						<p class="graphic_text"> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt </p> 
-
-						<div class="graphic_button">
-							<button class="_btn _bg" type="button">READ MORE</button>
+										<div class="home_about_details _dis_flex">
+											<p class="home_pro_title">Position</p>	
+											<p class="home_pro_num">{{item | positionName}}</p>	
+										</div>	
+									</div>	
+								</div>	
+							</a>
 						</div>
-					</div>
+							<!-- ITMES -->
+						
+						<!-- ITMES -->
+						
+					</slick>
+				</div>
+			</div>
+			
+			<div class="home_about_sec">
+				<div class="container">
+					<p class="_title _text_center">About Schedule</p>
 
-					<div class="col-12 col-md-7 ">
-						<img class="graphic_img" src="img/God.jpg" alt="" title="">
-					</div>
+					<p class="_text">Scheduling is the process of arranging, controlling and optimizing work and workloads in a production process or manufacturing process. Welcome to vscheduling, the ultimate valet scheduling tool. This is where valets get the absolute freedom to create their own schedules. There are weekly updates for new job postings which makes for a comfortable experience. Let’s get you started!”</p>
 				</div>
 			</div>
 		</div>
-		 <footerSection/>
-    </div>
+		<footerSection/>
+	</div>
 </template>
 
+
+
 <script>
+import Slick from 'vue-slick';
 import footerSection from '../partials/footer.vue'
 export default {
-	   components:{
-      footerSection,
+	 data() {
+        return {
+            slickOptions: {
+                dots: true,
+				infinite: true,
+				speed: 300,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				autoplay: true
+			},
+			list:[],
+			defultImage:'/img/valetPic.jpg'
+        };
+	},
+	// All slick methods can be used too, example here
+    methods: {
+        next() {
+            this.$refs.slick.next();
+        },
+
+        prev() {
+            this.$refs.slick.prev();
+        },
+
+        reInit() {
+            // Helpful if you have to deal with v-for to update dynamic lists
+            this.$nextTick(() => {
+                this.$refs.slick.reSlick();
+            });
+        },
+
+        // Events listeners
+        handleAfterChange(event, slick, currentSlide) {
+            console.log('handleAfterChange', event, slick, currentSlide);
+        },
+        handleBeforeChange(event, slick, currentSlide, nextSlide) {
+            console.log('handleBeforeChange', event, slick, currentSlide, nextSlide);
+        },
+        handleBreakpoint(event, slick, breakpoint) {
+            console.log('handleBreakpoint', event, slick, breakpoint);
+        },
+        handleDestroy(event, slick) {
+            console.log('handleDestroy', event, slick);
+        },
+        handleEdge(event, slick, direction) {
+            console.log('handleEdge', event, slick, direction);
+        },
+        handleInit(event, slick) {
+            console.log('handleInit', event, slick);
+        },
+        handleReInit(event, slick) {
+            console.log('handleReInit', event, slick);
+        },
+        handleSetPosition(event, slick) {
+            console.log('handleSetPosition', event, slick);
+        },
+        handleSwipe(event, slick, direction) {
+            console.log('handleSwipe', event, slick, direction);
+        },
+        handleLazyLoaded(event, slick, image, imageSource) {
+            console.log('handleLazyLoaded', event, slick, image, imageSource);
+        },
+        handleLazeLoadError(event, slick, image, imageSource) {
+            console.log('handleLazeLoadError', event, slick, image, imageSource);
+		},
+		async getAllUserList(){
+			const res = await this.callApi('get','getUserList');
+			if(res.status===200){
+				this.list = res.data
+			}
+			else{
+				
+			}
+		}
     },
+
+	components: {
+		Slick ,
+		 footerSection,
+	},
+	filters:{
+        positionName(item){
+            if(item.position == 'valet')
+                return "Valet";
+            else if(item.position == 'super')
+                return "Supervisor";
+            else if(item.position == 'manager')
+                return "Manager";
+            else if(item.position == 'admin')
+                return "Admin";
+        },
+    },
+	created(){
+		this.getAllUserList();
+	}
 }
 </script>
-
-<style>
-
-</style>

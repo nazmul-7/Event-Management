@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="schedule_header _mt63">
+        <!-- <div class="schedule_header _mt63">
             <h1 class="schedule_main_title _text_center _title">My Schedule</h1>
-        </div>
+        </div> -->
 
-        <div class="schedule ">
+        <div class="schedule _mt_110">
             <div class="container">
                 <div class="schedule_main">
                     
@@ -13,53 +13,57 @@
                     <p class="_text _text_center">Dorem Ipsum Dolor Sit. Incidunt Laborum Beatae Earum Nihil Odio Consequatur</p>
 
                         <!--~~~~~~ SCHEDULE ~~~~~~~~-->
-                    <div class="schedule_all _b_color" v-if="runningEvents.length" >
-                            <!-- ITEMS -->
-                        <div class="schedule_items _dis_flex _b_color" v-for="(item,index) in runningEvents " :key="index" >
-                            <div class="schedule_items_date schedule_date_bg_green">
-                                <p class="schedule_date_one">{{item.timeSlot}}</p>
-                                <p class="schedule_date_two">{{item.eventDate | getDay}}</p>
-                            </div>
+                    <div class="schedule_main_all _b_color">
+                        <div class="schedule_all _b_color" v-if="runningEvents.length" >
+                                <!-- ITEMS -->
+                            <div class="schedule_items _bg _color _dis_flex _box_shadow _b_color" v-for="(item,index) in runningEvents " :key="index" >
+                                <div class="schedule_items_date schedule_date_bg_green _color">
+                                    <p class="schedule_date_one">{{item.timeSlot}}</p>
+                                    <p class="schedule_date_two">{{item.eventDate | getDay}}</p>
+                                </div>
 
-                            <div class="schedule_title _flex_space _text_overflow _b_color">
-                                <p class="schedule_title_text _text_overflow">{{item.eventName}}</p>
-                            </div>
+                                <div class="schedule_title _flex_space _text_overflow _b_color">
+                                    <p class="schedule_title_text _text_overflow">{{item.eventName}}</p>
+                                </div>
 
-                            <div class="schedule_time _flex_space _b_color">
-                                <p class="schedule_time_text">
-                                    <i class="far fa-clock"></i> 
-                                    <span class="schedule_time_text_span">{{item.eventLocation}}</span>
-                                </p>
-                            </div>
-                            <div class="schedule_time _flex_space _b_color">
-                                <p class="schedule_time_text">
-                                    <i class="far fa-clock"></i> 
-                                    <span class="schedule_time_text_span">{{item.numberOfGuests}} </span>
-                                </p>
-                            </div>
-                            <div class="schedule_time _flex_space _b_color">
-                                <p class="schedule_time_text">
-                                    <i class="far fa-clock"></i> 
-                                    <span class="schedule_time_text_span">{{item.numberOfValetsNeeded- item.applications_count}}</span>
-                                </p>
-                            </div>
-                            <div class="schedule_time _flex_space _b_color" v-if="item.has_applied==null && authInfo.position!='admin'" @click="applyInEvent(index)" >
-                                <p class="schedule_time_text">
-                                    <button class="_btn schedule_button_btn"   type="button">Apply</Button>
-                                </p>
-                            </div>
-                            <div class="schedule_time _flex_space _b_color" v-if="item.has_applied && authInfo.position!='admin'" >
-                                <p class="schedule_time_text">
-                                    <button class="_btn schedule_button_btn" disabled  type="button">Applied</Button>
-                                </p>
-                            </div>
+                                <div class="schedule_time _flex_space _b_color _text_overflow">
+                                    <p class="schedule_time_text _text_overflow">
+                                        <i class="fas fa-map-marker-alt"></i>
 
-                           
+                                        <span class="schedule_time_text_span">{{item.eventLocation}}</span>
+                                    </p>
+                                </div>
+
+                                <div class="schedule_time schedule_othder  _b_color">
+                                    <p class="schedule_time_text">
+                                        <i class="fas fa-users"></i>
+
+                                        <span class="schedule_time_text_span">{{item.numberOfGuests}} </span>
+                                    </p>
+                                </div>
+
+                                <div class="schedule_time schedule_othder  _b_color">
+                                    <p class="schedule_time_text">
+                                        <i class="fas fa-users"></i>
+
+                                        <span class="schedule_time_text_span">{{item.numberOfValetsNeeded- item.applications_count}} valets</span>
+                                    </p>
+                                </div>
+
+                                <div class="schedule_time schedule_othder _b_color" v-if="item.has_applied==null && authInfo.position!='admin'" @click="applyInEvent(index)" >
+                                    <p class="schedule_time_text">
+                                        <button class=" schedule_button_btn _btn2"   type="button">Apply</Button>
+                                    </p>
+                                </div>
+
+                                <div class="schedule_time schedule_othder  _b_color" v-if="item.has_applied && authInfo.position!='admin'" >
+                                    <p class="schedule_time_text">
+                                        <button class=" schedule_button_btn _btn2" disabled  type="button">Applied</Button>
+                                    </p>
+                                </div>
+                            </div>
+                                <!-- ITEMS -->
                         </div>
-                            <!-- ITEMS -->
-
-                          
-                          
                     </div>
 
                         <!--~~~~~~~ BUTTON ~~~~~~~~~~-->
@@ -119,6 +123,10 @@ export default {
         },
     },
     created(){
+     
+        if(!this.authInfo){
+            return this.$router.push('/login')
+        }
         this.getRunningEvents();
       
         
@@ -130,7 +138,3 @@ export default {
 
 }
 </script>
-
-<style>
-
-</style>

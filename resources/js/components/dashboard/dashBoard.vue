@@ -3,19 +3,13 @@
                         Profile
             ===========================-->
                 <!--======= Profile Main ======-->
-        <div class="profile_main _mt63">
+        <div class="profile_main _mt_110 _pb_30">
             <div class="container">
-                <div class="_title_header _b_color2">
-                    <h3 class="_title">{{userInfo.name}} Profile</h3>
-                </div>
-
-                <p class="_title4"><i class="fas fa-chevron-left"></i> BACK</p>
-
                 <div class="row">
                         <!--~~~~~~~ Profile Card ~~~~~~~-->
                     <div class="col-12 col-md-4 col-lg-4">
                         <!--~~~~~~~ Details Right Profile ~~~~~~~-->
-                        <div class="Details_profie _mr_b30 _box_shadow _border_radious _padd_20">
+                        <div class="Details_profie _mr_b30 _bg _box_shadow _border_radious _padd_20">
                             <div class="Details_profie_img_div" v-if="authInfo.id==user_id" >
                                 <Upload
                                  ref="upload"
@@ -83,7 +77,7 @@
 
                                     <p class="Details_pro_renge_name _flex_space">Position</p>
 
-                                    <div class="boi_text_div _w_100">
+                                    <div class="boi_text_div">
                                         <div class="Pro_details">
                                             <p class="boi_text _text_overflow">{{userInfo.position}}</p>
                                         </div>
@@ -94,7 +88,7 @@
 
                                     <p class="Details_pro_renge_name _flex_space">Email</p>
 
-                                    <div class="boi_text_div _w_100">
+                                    <div class="boi_text_div">
                                         <div class="Pro_details">
                                             <p class="boi_text _text_overflow">{{userInfo.email}}</p>
                                         </div>
@@ -105,7 +99,7 @@
 
                                     <p class="Details_pro_renge_name _flex_space">Contact Number</p>
 
-                                    <div class="boi_text_div _w_100">
+                                    <div class="boi_text_div">
                                         <div class="Pro_details">
                                             <p v-if="isEdit" class="boi_text _text_overflow">
                                                 <input type="text" v-model="edituserInfo.phone">
@@ -114,12 +108,7 @@
                                         </div>
                                     </div>
                                 </div>
-                             
-
-                                </div>
-
-
-                                
+                            </div>
                             </div>
                         </div>
                     
@@ -127,7 +116,7 @@
 
                         <!--~~~~~~~ Profile Details ~~~~~~~-->
                     <div class="col-12 col-md-8 col-lg-8">
-                        <div class="_box_shadow pro_menu _border_radious " v-if=" authInfo.id==user_id "  >
+                        <div class="_box_shadow pro_menu _bg _color _border_radious " v-if=" authInfo.id==user_id "  >
                             <ul class="pro_menu_list">
                                 <li  v-if="authInfo.id==user_id"  :class="(sellerTab==1)? 'pro_menu_active':''" @click="sellerTab=1">Running Event</li>
                                 <li  v-if="authInfo.id==user_id"  :class="(sellerTab==2)? 'pro_menu_active':''" @click="sellerTab=2">Old Event</li>

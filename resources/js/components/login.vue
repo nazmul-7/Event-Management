@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-5">
-                    <div class="login_main _box_shadow">
+                    <div class="login_main _bg _color _box_shadow">
                         <h3 class="_title2">User Log in</h3>
                         <form>
                             <div class="login_input_group">
@@ -14,7 +14,7 @@
                                 <p class="forget_pass"><span><router-link :to="{path:'/passwordresetGetEmail'}" >Forgot password?</router-link></span></p>
                             </div>
                              <div class="login_input_group">
-                                <button class="_btn _bg" type="button" @click="login" >LOGIN</button>
+                                <button class="_btn2 _bg" type="button" @click="login" >LOGIN</button>
                             </div>
                         </form>
                     </div>
@@ -59,7 +59,11 @@ export default {
         },
     },
     created(){
-
+        console.log('lrrrrrrrrrrrrrrrrrrrrr')
+        if(this.authInfo){
+            console.log('I am here')
+            return this.$router.push('/schedule')
+        }
     },
 
 }

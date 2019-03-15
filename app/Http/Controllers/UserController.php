@@ -26,6 +26,7 @@ class UserController extends Controller
 
 
 
+
     public function login(Request $request){
         if((User::where('email', $request->email)->count())==0){
             return response()->json([
@@ -150,6 +151,18 @@ class UserController extends Controller
         User::where('id',$id)->update($data);
         return $pic;
         
+    }
+
+
+    // contact us 
+    public function contactus(Request $request){
+        $this->validate($request, [
+            'email' => 'required|string|max:255|email',
+        ]);
+        \Log::info($request->all());
+        return response()->json([
+            'message' => "Message has been sent!",
+          ], 200);
     }
 
     

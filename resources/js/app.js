@@ -17,7 +17,7 @@ import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import locale from 'iview/dist/locale/en-US';
 Vue.use(iView, { locale });
-
+import 'slick-carousel/slick/slick.css'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

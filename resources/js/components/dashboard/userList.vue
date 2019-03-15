@@ -1,7 +1,7 @@
 <template>
     <div>
-         <div class="_box_shadow pro_menu _border_radious text-center "  >
-             <Select  v-model="filterPosition" placeholder="Select a User Position" style="width:200px; ">
+         <div class="_box_shadow pro_menu _bg _color _border_radious text-center "  >
+             <Select  v-model="filterPosition" placeholder="Select a User Position">
                 <Option value=""  >All</Option>
                 <Option value="valet" >Valet</Option>
                 <Option value="super" >Supervisor</Option>
@@ -10,9 +10,10 @@
             </Select>
            
         </div>
-        <div class="_profile_card_all" v-if="list.length" >
+        
+        <div class="_profile_card_all pro_table_all _bg _color _border_radious" v-if="list.length" >
             <!-- card -->
-            <table class="table table-dark table-striped">
+            <table class="pro_table_main">
                 <thead>
                 <tr>
                     <th>Name</th>

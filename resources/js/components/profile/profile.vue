@@ -3,19 +3,14 @@
                         Profile
             ===========================-->
                 <!--======= Profile Main ======-->
-        <div class="profile_main _mt63">
+        <div class="profile_main _mt_110">
             <div class="container">
-                <div class="_title_header _b_color2">
-                    <h3 class="_title">{{userInfo.name}} Profile</h3>
-                </div>
-
-                <p class="_title4"><i class="fas fa-chevron-left"></i> BACK</p>
-
+                
                 <div class="row">
                         <!--~~~~~~~ Profile Card ~~~~~~~-->
                     <div class="col-12 col-md-4 col-lg-4">
                         <!--~~~~~~~ Details Right Profile ~~~~~~~-->
-                        <div class="Details_profie _mr_b30 _box_shadow _border_radious _padd_20">
+                        <div class="Details_profie _mr_b30 _bg _color _box_shadow _border_radious _padd_20">
                             <div class="Details_profie_img_div" v-if="authInfo.id==user_id" >
                                 <Upload
                                  ref="upload"
@@ -48,16 +43,7 @@
                                 <div class="Details_profie_title_line"></div>
                             </div>
 
-                            <div class="Details_profie_rating">
-                                <ul class="_1job_card_rating_ul">
-                                    <li class="_color"><i class="fas fa-star"></i></li>
-                                    <li class="_color"><i class="fas fa-star"></i></li>
-                                    <li class="_color"><i class="fas fa-star"></i></li>
-                                    <li class=""><i class="fas fa-star"></i></li>
-                                    <li class=""><i class="fas fa-star"></i></li>
-                                    <li class="_1job_card_rating_num">(2k+)</li>
-                                </ul>
-                            </div>
+                            
 
                             <div class="Details_profie_location">
                                 <div class="Details_pro_renge _dis_flex _b_color2">
@@ -90,7 +76,7 @@
 
                                     <p class="Details_pro_renge_name _flex_space">Position</p>
 
-                                    <div class="boi_text_div _w_100">
+                                    <div class="boi_text_div ">
                                         <div class="Pro_details">
                                             <p class="boi_text _text_overflow">{{userInfo.position}}</p>
                                         </div>
@@ -101,7 +87,7 @@
 
                                     <p class="Details_pro_renge_name _flex_space">Email</p>
 
-                                    <div class="boi_text_div _w_100">
+                                    <div class="boi_text_div ">
                                         <div class="Pro_details">
                                             <p class="boi_text _text_overflow">{{userInfo.email}}</p>
                                         </div>
@@ -112,7 +98,7 @@
 
                                     <p class="Details_pro_renge_name _flex_space">Contact Number</p>
 
-                                    <div class="boi_text_div _w_100">
+                                    <div class="boi_text_div ">
                                         <div class="Pro_details">
                                             <p v-if="isEdit" class="boi_text _text_overflow">
                                                 <input type="text" v-model="edituserInfo.phone">
@@ -124,9 +110,9 @@
                                 <div class="Details_pro_renge _dis_flex _b_color2">
                                     <i class="fas fa-phone"></i>
 
-                                    <p class="Details_pro_renge_name _flex_space">Total Woking Hour(running week )</p>
+                                    <p class="Details_pro_renge_name _flex_space">This week's total works</p>
 
-                                    <div class="boi_text_div _w_100">
+                                    <div class="boi_text_div ">
                                         <div class="Pro_details">
                                            
                                             <p  class="boi_text _text_overflow text-center ">{{totalRunningTime}} Hours </p>
@@ -136,13 +122,13 @@
                                 <div class="Details_pro_renge _dis_flex _b_color2">
                                     <i class="fas fa-phone"></i>
 
-                                    <p class="Details_pro_renge_name _flex_space">Total Woking Hour(all week )</p>
+                                    <p class="Details_pro_renge_name _flex_space">Lifetime working hours</p>
 
-                                    <div class="boi_text_div _w_100">
+                                    <div class="boi_text_div ">
                                         <div class="Pro_details">
-                                            <p v-if="isEdit" class="boi_text _text_overflow">
+                                            <!-- <p v-if="isEdit" class="boi_text _text_overflow">
                                                 <input type="text" v-model="edituserInfo.phone">
-                                            </p>
+                                            </p> -->
                                             <p  class="boi_text _text_overflow text-center">{{totalRunningTime}} Hours</p>
                                         </div>
                                     </div>
@@ -159,12 +145,13 @@
 
                         <!--~~~~~~~ Profile Details ~~~~~~~-->
                     <div class="col-12 col-md-8 col-lg-8">
-                        <div class="_box_shadow pro_menu _border_radious " v-if=" authInfo.id==user_id"  >
+                        <div class="_box_shadow pro_menu _color _box_shadow _bg _border_radious " v-if=" authInfo.id==user_id"  >
                             <!-- <ul class="pro_menu_list">
                                 <li  v-if="authInfo.id==user_id"  :class="(sellerTab==1)? 'pro_menu_active':''" @click="sellerTab=1">Service</li>
                             </ul> -->
                            
                         </div>
+
                         <servicelist  v-if="sellerTab==1 && authInfo.id==user_id" ></servicelist>
                     </div>
                         <!--~~~~~~~ Profile Details ~~~~~~~-->
@@ -244,6 +231,9 @@ export default {
 
     },
     created(){
+         if(!this.authInfo){
+            return this.$router.push('/login')
+        }
         this.getProfileInfo();
           this.getTotalWokingHours();
     }

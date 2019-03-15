@@ -51,6 +51,9 @@ Route::post( 'app/updateUser', 'EventController@updateUser');
 Route::post( 'app/deleteUser', 'EventController@deleteUser');
 
 
+// Contact 
+Route::post("app/contactus", "UserController@contactus");
+
 
 
 

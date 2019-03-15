@@ -14,6 +14,8 @@ import profile from '../components/profile/profile.vue';
 import dashBoard from '../components/dashBoard/dashBoard.vue';
 import eventCreate from '../components/eventCreate.vue';
 import eventEdit from '../components/eventEdit.vue';
+import about from '../components/about.vue';
+import contact from '../components/contact.vue';
 
 
 
@@ -128,6 +130,28 @@ export default new Router({
           guest: true,
           allowedUserType: ['All'],
           title: 'Event Create',
+      }
+
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: about,
+      meta: {
+          guest: true,
+          allowedUserType: ['All'],
+          title: 'About',
+      }
+
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: contact,
+      meta: {
+          guest: true,
+          allowedUserType: ['All'],
+          title: 'Contact',
       }
 
     },

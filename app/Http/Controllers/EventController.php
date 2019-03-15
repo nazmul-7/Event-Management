@@ -136,7 +136,6 @@ class EventController extends Controller
         return Event::where('status',"runningWeek")->orderBy('id','DESC')->get();
     }
     public function getUserList(){
-     
         return User::all();
     }
     public function getAllOldEventList(){

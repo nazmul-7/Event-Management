@@ -5,27 +5,20 @@
 4.SCHEDULE 
 5.SIGNUP
 
-
-
-3.HOME
-4.SERVICE
-5.FAQS
-7.ABOUT
-8.CONTACT
-9.SHOP
-10.LOGIN
-11.REGISTRATION
-12.DETAILS
-13.CHECKOUT
 =========================*/
 
 /*===== 1.COMMON CSS ======*/
 body {
-    margin: 0px auto;
-    padding: 0px;
-    background: #f7f7f7;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",Arial,sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: goldenrod !important;
+    background-color: #000 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    padding-bottom: 145px !important;
+    min-height: 89vh !important;
 }
 p{
 	font-size:14px;
@@ -52,16 +45,20 @@ input, select{
 textarea {
     resize: none;
 }
+._mt_110{
+    margin-top: 110px;
+}
+._pb_30{
+    padding-bottom: 30px;
+}
 ._b_color {
-    border-color: #dee2e6!important;
+    border-color: #353535a6 !important;
 }
 ._bg {
-    background: #2d2c2c;
-    color: #fff;
+    background: #131212;
 }
 ._box_shadow {
-    box-shadow: 0px 0px 1px 1px #ddd;
-    box-shadow: 0 2px 12px rgba(0,0,0,.09);
+    box-shadow: 0 2px 3px rgb(33, 29, 37);
 }
 ._dis_flex{
 	display:flex;
@@ -70,10 +67,10 @@ textarea {
 	flex:1 1;
 }
 ._color{
-	color: #fcb040;
+	color: gold;
 }
-._b_color2{
-    border-color: #ddd !important;
+._b_color2 {
+    border-color: #353535a6 !important;
 }
 ._padd_15{
     padding-right: 15px;
@@ -91,7 +88,7 @@ textarea {
 }
 ._text {
     font-size: 14px;
-    color: #111;
+    color: gold;
 }
 ._text_center{
 	text-align: center;
@@ -103,18 +100,21 @@ textarea {
     color: #111111;
     font-size: 45px;
     margin: 0px;
+    color: gold;
     font-weight: 700;
 }
 ._title2 {
     font-size: 24px;
     margin: 0px;
     font-family: inherit;
+    color: gold;
     font-weight: 600;
 }
 ._title3 {
     font-size: 20px;
     margin: 0;
     font-weight: 600;
+    color: gold;
 }
 ._flex_row {
     display: -ms-flexbox;
@@ -137,7 +137,32 @@ textarea {
 }
 ._btn:hover {
     background-color: transparent;
-    color: #131212;
+    color:gold;
+    border: 2px solid #000000;
+}
+._btn2{
+    font-size: 12px;
+    border: 2px solid;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    padding: 12px 30px 12px;
+    border-color: #000000;
+    background-color: #000000;
+    color: gold;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.2;
+}
+._btn2:hover{
+    background-color: transparent;
+    color:gold;
+    border: 2px solid #000000;
 }
 ._btn {
     font-size: 12px;
@@ -146,9 +171,9 @@ textarea {
     letter-spacing: 1px;
     border-radius: 3px;
     padding: 12px 30px 12px;
-    border-color: #131212;
-    background-color: #131212;
-    color: #fff;
+    border-color: #000000;
+    background-color: #000000;
+    color: gold;
     -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -ms-transition: all 0.5s ease-out;
@@ -176,13 +201,12 @@ textarea {
     z-index: 111;
     top: 0px;
     left: 0px;
-    background: #fff;
     padding: 0 35px;
 }
 ._2menu_logo {
     height: 100%;
     padding-top: 23px;
-    border-right: 1px solid #ececec;
+    border-right: 1px solid;
     padding-right: 28px;
 }
 ._2menu_logo_pic {
@@ -195,8 +219,8 @@ textarea {
 }
 ._2menu_log {
     height: 100%;
-    padding: 13px 0 0 16px;
-    border-left: 1px solid #ececec;
+    padding: 13px 0 0 0px;
+    border-left: 1px solid;
 }
 ._2menu_profile {
     height: 42px;
@@ -326,8 +350,8 @@ textarea {
     color: #424242;
     align-items: center;
 }
-._2big_menu_list li:hover, ._2menu_main_ul_list_ul li a:hover{
-    color: #000;
+._2big_menu_list li:hover, ._2menu_main_ul_list_ul li a:hover {
+    color: #ffca45;
 }
 ._2big_menu_title i{
     font-size: 14px;
@@ -361,7 +385,7 @@ textarea {
 ._2menu_main_ul_list_ul li a {
     transition: 0.3s all ease;
     cursor: pointer;
-    color: #424242;
+    color: goldenrod;
     align-items: center;
     font-size: 12px;
     font-weight: 600;
@@ -373,6 +397,10 @@ textarea {
 ._2footer {
     background-color: #131212;
     color: silver;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
 }
 ._2footer_logo{}
 ._2footer_logo_img {
@@ -440,7 +468,6 @@ textarea {
 ._2footer_search button{}
 ._2footer_copy{}
 ._2footer_copy_text {
-    color: silver;
     padding: 39px 0;
 }
 ._2footer_main_ul_span{
@@ -469,7 +496,7 @@ textarea {
 
 /*========== 4.SCHEDULE =======*/
 .schedule {
-    padding-top: 45px;
+    
 }
 .schedule_header:before{
         position: absolute;
@@ -505,8 +532,12 @@ textarea {
     font-size: 16px;
 }
 .schedule_main{}
+.schedule_main_all{
+    overflow: auto;
+}
 .schedule_all {
     margin-top: 50px;
+    min-width: 1100px;
 }
 .schedule_date_bg_red{
     background: red;
@@ -515,27 +546,29 @@ textarea {
     background: blue;
 }
 .schedule_items:last-child {
-    border-bottom: 1px solid;
+    
 }
 .schedule_items {
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 21px;
+    height: 99px;
 }
-.schedule_items_date{
-        border-top: 0;
-    padding: 28px 5px 20px;
+.schedule_items_date {
+    border-top: 0;
+    padding: 26px 5px 9px;
     text-align: center;
-    width: 134px;
+    width: 145px;
+    height: 100px;
 }
 .schedule_date_one {
-    color: #ffffff;
-    font-size: 18px;
+    /* color: #ffffff; */
+    font-size: 13px;
     line-height: 1;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
 }
 .schedule_date_two {
-    color: #ffffff;
+    /* color: #ffffff; */
     font-size: 24px;
     font-weight: 900;
     margin: 14px 0 0;
@@ -543,7 +576,6 @@ textarea {
 .schedule_title {
     padding: 40px 15px;
     height: 99px;
-    border-top: 1px solid;
 }
 .schedule_title_text {
     cursor: pointer;
@@ -551,9 +583,10 @@ textarea {
     font-weight: 600;
 }
 .schedule_time {
-    padding: 41px 15px;
-    height: 99px;
-    border-top: 1px solid;
+    padding: 0px 15px;
+}
+.schedule_othder{ 
+    width: 159px;
 }
 .schedule_time_text{}
 .schedule_time_text i{
@@ -577,7 +610,7 @@ textarea {
     border-radius: 50%;
 }
 .schedule_date_bg_green {
-    background: #8cc63e;
+    background: #404040;
 }
 .schedule_image_ul{}
 .schedule_image_ul li{
@@ -610,22 +643,34 @@ textarea {
 }
 .registration_main {
     padding: 10px 30px 12px;
-    background: #fff;
     margin: 33px 0 33px;
 }
 .regi_title {
     text-align: left;
     font-size: 16px;
-    color: #000;
     margin-left: 1px;
     margin-bottom: 8px;
 }
+.ivu-input {
+    background: #0e0e0e !important;
+    border: 1px solid #000000e6 !important;
+    padding: 0px 10px !important;
+        padding-right: 10px !important;
+    height: 39px !important;
+    font-size: 16px !important;
+    color: gold !important;
+}
+.ivu-date-picker {
+    width: 100% !important;
+
+}
 .content_input_int {
-    background: #fff;
-    border: 1px solid #e6e6e6;
+    background: #0e0e0e;
+    border: 1px solid #000000e6;
     padding: 0px 10px;
     height: 39px;
     font-size: 16px;
+    color: gold;
 }
 .content_input_int_e {
     background: #fff;
@@ -634,11 +679,13 @@ textarea {
     height: 39px;
 }
 .login_input_group select {
-    background: #fff;
-    border: 1px solid #e6e6e6;
+    width: 100%;
+    background: #0e0e0e;
+    border: 1px solid #000000e6;
     padding: 0px 10px;
     height: 39px;
-    width: 100%;
+    font-size: 16px;
+    color: gold;
 }
 .optoin_select{
 
@@ -824,7 +871,6 @@ textarea {
 .login_main {
     padding: 23px 30px;
     margin-top: 51px;
-    background: #fff;
 }
 .login_input_group {
     text-align: center;
@@ -863,6 +909,11 @@ textarea {
 ._w_100{
     width: 100%;
 }
+.Details_profie {
+    padding-top: 26px;
+    padding-bottom: 9px;
+    margin-bottom: 30px;
+}
 .Details_profie_img_div {
     width: 100px;
     height: 100px;
@@ -880,14 +931,14 @@ textarea {
     cursor: pointer;
     bottom: -100%;
     background: #0000009e;
-    color: #fff;
+    color: gold;
     font-size: 11px;
     left: 0;
     transition: .3s all ease;
     text-align: center;
     width: 100%;
-    height: 40px;
-    padding-top: 10px;
+    height: 42px;
+    padding-top: 8px;
 }
 .pro_edit_all {
     color: #10a2ef;
@@ -955,7 +1006,6 @@ textarea {
 }
 .Details_profie_rating{}
 .pro_menu {
-    background: #fff;
     margin-bottom: 30px;
     padding: 13px 28px;
 }
@@ -973,7 +1023,7 @@ textarea {
     display: inline-block;
     font-size: 15px;
     font-weight: 600;
-    color: #222;
+    color: gold;
     border-right: 1px solid #ececec;
     padding-right: 19px;
     margin-right: 16px;
@@ -981,7 +1031,7 @@ textarea {
     cursor: pointer;
 }
 .pro_menu_list li:hover {
-    color: #249ebd;
+    color: #d8b917 ;
 }
 .pro_table {
     padding: 29px 20px;
@@ -1002,23 +1052,9 @@ textarea {
     border: 1px solid #ddd;
     padding: 8px 15px;
 }
-.pro_menu_active{
-    color: #249ebd !important;
+.pro_menu_active {
+    color: #d8b917 !important;
 }
-
-
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
 /*========= 15.Profile =======*/
 
 
@@ -1132,7 +1168,6 @@ textarea {
 }
 .Details_profie_rating{}
 .pro_menu {
-    background: #fff;
     margin-bottom: 30px;
     padding: 13px 28px;
 }
@@ -1146,19 +1181,36 @@ textarea {
 .pro_menu_list li:last-child {
     border-right: none;
 }
+.pro_table_all {
+    padding: 30px 19px 1px;
+    overflow: auto;
+}
+.pro_table_main {
+    width: 687px;
+}
+.pro_table_main tr{}
+.pro_table_main tr th {
+    border: 1px solid #353535a6;
+    padding: 11px 10px;
+}
+.pro_table_main tr td {
+    border: 1px solid #353535a6;
+    padding: 11px 10px;
+}
+
 .pro_menu_list li {
     display: inline-block;
     font-size: 15px;
     font-weight: 600;
-    color: #222;
-    border-right: 1px solid #ececec;
+    color: gold;
+    border-right: 1px solid #353535a6;
     padding-right: 19px;
     margin-right: 16px;
     transition: .2s all ease;
     cursor: pointer;
 }
 .pro_menu_list li:hover {
-    color: #249ebd;
+    color: #d8b917 ;
 }
 .pro_table {
     padding: 29px 20px;
@@ -1171,29 +1223,17 @@ textarea {
 }
 .pro_table_list tr{}
 .pro_table_list tr th {
-    border: 1px solid #ddd;
+    border: 1px solid #353535a6;
     padding: 8px 15px;
     color: #222;
 }
 .pro_table_list tr td {
-    border: 1px solid #ddd;
+    border: 1px solid #353535a6;
     padding: 8px 15px;
 }
 .pro_menu_active{
-    color: #249ebd !important;
+    color: #d8b917  !important;
 }
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
 /*========= 15.Profile =======*/
    /* profile */
    .pro_menu {
@@ -1316,7 +1356,6 @@ textarea {
     background: #fff;
     padding-top: 4px;
 }
-._btn2{}
 ._block_buttons_btn{}
 .Details_main_left_menu_date_text {
     color: #8b8b8b;
@@ -1341,11 +1380,9 @@ textarea {
 }
 .Details_pro_renge i {
     font-size: 12px;
-    color: #8b8b8b;
     width: 30px;
 }
 .Details_pro_renge_name {
-    color: #8b8b8b;
     font-size: 14px;
 }
 .Details_profie input, .Details_profie  textarea{
@@ -1354,7 +1391,6 @@ textarea {
 .Details_pro_renge_num select {
     border: none;
     font-weight: 600;
-    color: #666;
     width: 100px;
 }
 .Details_pro_renge_num select option{
@@ -1378,6 +1414,12 @@ textarea {
 .Details_pro_extra_title {
     margin-bottom: 5px;
     margin-top: 14px;
+}
+.profile_schedule {
+    overflow: auto;
+}
+.pro_schedule_all{
+    width: 750px;
 }
 .Details_pro_extra_all{}
 .Details_pro_extra_main {
@@ -1611,4 +1653,102 @@ textarea {
 }
 /*--- card ----*/
 /* ================================================================================================================================================================== */
+/*======== HOME  ============*/
+.home{}
+.home ul {
+    text-align: center;
+    margin-top: 20px;
+}
+.home li {
+    display: inline-block;
+    padding: 0 9px;
+}
+.home ._title2 {
+    margin-bottom: 30px;
+}
+.home_about_sec ._text {
+    margin-top: 31px;
+}
+.slick-arrow{
+    display: none !important;
+}
+.home_about_sec {
+    padding: 61px 0 20px;
+}
+.home_all {
+    padding: 48px 21px 26px;
+}
+.home_pic{}
+.home_img{}
+.home_about{}
+.home_about_details {
+    color: gold;
+    margin-bottom: 18px;
+}
+.home_pro_title {
+    font-size: 17px;
+    font-weight: 600;
+    min-width: 165px;
+}
+.home_pro_num {
+    font-size: 17px;
+}
+.home [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    background: black;
+    border: none;
+    color: gold;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    font-size: 10px;
+}
+.about{}
+.about ._title{
+    margin-bottom: 40px;
+}
+.About_img{
+    padding: 13px 20px;
+}
+.about_details{
+    padding: 13px 20px;
+}
+.mobile_button{
+    display: none;
+}
+.{}
+.{}
+.{}
+.{}
+.{}
+.{}
+.{}
+/*======== HOME  ============*/
 
+
+@media only screen and (max-width: 1050px) {
+.mo_none{
+    display: none;
+}
+.mobile_button{
+    display: block;
+}
+._2menu_logo {
+    flex: 1 1;
+}
+.mobile_button i{
+    font-size: 19px;
+    margin: 0 0 0 27px;
+    cursor: pointer;
+}
+._title {
+    line-height: 45px;
+}
+
+
+
+
+
+
+
+}

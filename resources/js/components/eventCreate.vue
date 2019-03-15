@@ -3,12 +3,12 @@
         <div class="container">
             <div class="row justify-content-center" v-if="!weekFlag" >
                 <div class="col-12 col-md-6">
-                    <div class="registration_main _box_shadow">
-                        <h3 class="_title2">Event Registration</h3>
+                    <div class="registration_main _box_shadow _bg _color">
+                        <h3 class="_title2">Create Event</h3>
                         <form>
                             <div class="row">
                                     <!-- items -->
-                               <div class="col-12 col-md-6 justify content center">
+                               <div class="col-12 col-md-12 justify content center">
                                     <div class="login_input_group">
                                         <p class="regi_title" >Choose Week</p>
                                         <select  v-model="weekStatus" >
@@ -20,7 +20,7 @@
                                 
                                 <div class="col-12 col-md-12">
                                     <div class="login_input_group">
-                                        <button class="_btn _bg" type="button" @click="weekSelect" >Next</button>
+                                        <button class="_btn2 _bg" type="button" @click="weekSelect" >Next</button>
                                     </div>
                                 </div>
                                     <!-- button -->
@@ -29,9 +29,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="row justify-content-center" v-if="weekFlag" >
                 <div class="col-12 col-md-6">
-                    <div class="registration_main _box_shadow">
+                    <div class="registration_main _box_shadow _bg _color">
                         <h3 class="_title2">Event Registration</h3>
                         <form>
                             <div class="row">
@@ -105,7 +106,7 @@
                                 
                                 <div class="col-12 col-md-12">
                                     <div class="login_input_group">
-                                        <button class="_btn _bg" type="button" @click="registation" >Create</button>
+                                        <button class="_btn2 _bg" type="button" @click="registation" >Create</button>
                                     </div>
                                 </div>
                                     <!-- button -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2019 at 05:39 PM
+-- Generation Time: Mar 15, 2019 at 06:13 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.11
 
@@ -44,11 +44,9 @@ CREATE TABLE `applications` (
 --
 
 INSERT INTO `applications` (`id`, `event_id`, `user_id`, `totalHoursApplied`, `status`, `isApproved`, `created_at`, `updated_at`) VALUES
-(1, 2, 3, 5.00, 'oldWeek', 'Yes', NULL, '2019-03-14 05:56:29'),
-(2, 1, 3, 4.00, 'oldWeek', 'Yes', '2019-03-14 02:52:04', '2019-03-14 05:56:29'),
-(4, 2, 2, 5.00, 'oldWeek', 'Yes', '2019-03-14 02:53:54', '2019-03-14 05:56:29'),
-(7, 1, 2, 4.00, 'oldWeek', 'Yes', '2019-03-14 02:58:17', '2019-03-14 05:56:29'),
-(9, 4, 1, 0.05, 'runningWeek', 'Yes', '2019-03-14 11:11:18', '2019-03-14 11:11:18');
+(10, 1, 1, 3.00, 'runningWeek', 'Yes', '2019-03-14 14:14:09', '2019-03-14 14:14:09'),
+(11, 2, 1, 3.00, 'runningWeek', 'Yes', '2019-03-14 14:14:10', '2019-03-14 14:14:10'),
+(12, 4, 1, 4.00, 'runningWeek', 'Yes', '2019-03-14 14:14:11', '2019-03-14 14:14:11');
 
 -- --------------------------------------------------------
 
@@ -78,9 +76,9 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `user_id`, `eventName`, `eventDesc`, `eventLocation`, `timeSlot`, `totalHours`, `eventDate`, `numberOfGuests`, `numberOfValetsNeeded`, `visibleAfter`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'a', 'a', 'a', '02:00 AM - 06:00 AM', 4.00, '2019-03-14', 50, 5, 1, 'oldWeek', '2019-03-13 23:14:11', '2019-03-14 05:56:29'),
-(2, 1, 'This is Frist Event', 'This is Some Description.This is Some Description.This is Some Description.This is Some Description.This is Some Description.', 'Sylhet,Bangladesh', '08:00 AM - 02:09 PM', 6.15, '2019-03-14', 50, 5, 1, 'oldWeek', '2019-03-13 23:15:26', '2019-03-14 10:55:04'),
-(3, 1, 'Zx', 'aZXZ', 'ZXZX', '02:00 AM - 03:00 AM', 3.00, '2019-04-09', 23, 23, 1, 'oldWeek', '2019-03-14 06:55:44', '2019-03-14 06:57:50'),
+(1, 1, 'a', 'a', 'a', '02:00 AM - 06:00 AM', 4.00, '2019-03-14', 50, 5, 1, 'runningWeek', '2019-03-13 19:14:11', '2019-03-14 05:56:29'),
+(2, 1, 'This is Frist Event', 'This is Some Description.This is Some Description.This is Some Description.This is Some Description.This is Some Description.', 'Sylhet,Bangladesh', '08:00 AM - 02:09 PM', 6.15, '2019-03-14', 50, 5, 1, 'runningWeek', '2019-03-13 23:15:26', '2019-03-14 10:55:04'),
+(3, 1, 'Zx', 'aZXZ', 'ZXZX', '02:00 AM - 03:00 AM', 3.00, '2019-04-09', 23, 23, 1, 'runningWeek', '2019-03-14 06:55:44', '2019-03-14 06:57:50'),
 (4, 1, 'SA', 'as', 'AS', '03:02 AM - 03:05 AM', 0.05, '2019-03-15', 232, 23, 23, 'runningWeek', '2019-03-14 10:55:25', '2019-03-14 10:55:25');
 
 -- --------------------------------------------------------
@@ -145,7 +143,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `phone`, `position`, `image`, `email_verified_at`, `password`, `isActive`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Nazmul editedf', 'Chowdhury editedf', 'nazmulchowdhury4@gmail.com', '01681189844', 'super', '/uploads/SO6EFo15fq1bEqe4Luy4A9mguSNj44fnmetNg5Dy.png', NULL, '$2y$10$LYrX6kFIf91jwNo1CfIcauM/njL4v6VyRmwRMz4ENfOJGrc2PmXh2', 1, NULL, '2019-03-13 03:20:47', '2019-03-14 11:34:12'),
-(3, 'Kamran', 'Ahmed', 'kamran@gmail.com', NULL, 'valet', NULL, NULL, '$2y$10$i9nV1NrPmDxX8IcD3c4vTOnHhTUeNE0RqEYedp/L77XYMs2XSaICK', 1, NULL, '2019-03-14 00:32:51', '2019-03-14 11:36:16');
+(3, 'Kamran', 'Ahmed', 'kamran@gmail.com', NULL, 'admin', NULL, NULL, '$2y$10$LYrX6kFIf91jwNo1CfIcauM/njL4v6VyRmwRMz4ENfOJGrc2PmXh2', 1, NULL, '2019-03-14 00:32:51', '2019-03-14 11:36:16'),
+(4, 'Shipu', 'Numan', 'shipu@gmail.com', NULL, 'super', NULL, NULL, '$2y$10$3vHVn/IW8CNSTo3oR1gJl.pBR3sl0kf6hIwS0gu0b8yLrWj.MEiOm', 1, NULL, '2019-03-15 04:59:59', '2019-03-15 04:59:59');
 
 --
 -- Indexes for dumped tables
@@ -190,7 +189,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -208,7 +207,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
