@@ -98,8 +98,8 @@ class EventController extends Controller
             "super" => 30,
             "valet" => 20,
         ];
+        // User Hours Checked!
         $totalHoursWorked = $this->getTotalWokingHoursC();
-        \Log::info($totalHoursWorked);
         if($workLimit[Auth::user()->position] <= $totalHoursWorked){
             if(!Auth::check()){
                 return response()->json([
@@ -107,6 +107,18 @@ class EventController extends Controller
                ], 401);
             }
         }
+        // User Hours Checked!
+        $valetNeeded = $this->getValetNeededNumber($data['event_id']);
+        
+        if($valetNeeded <=0){
+            if(!Auth::check()){
+                return response()->json([
+                  'message' => "Valets field fillup for this event!",
+               ], 401);
+            }
+        }
+
+
         $data['user_id'] = $id;
         return Application::create($data);
     }
@@ -186,4 +198,25 @@ class EventController extends Controller
         }
         return User::where("id",$data['id'])->delete();
     }
+    public function unaapplyEvent(Request $request){
+        $data = $request->all();
+        if(!Auth::check()){
+            return response()->json([
+              'message' => "You are not Authenticate User!",
+           ], 401);
+        }
+        $id = Auth::user()->id;
+      
+        return Application::where([["event_id",$data['id']],['user_id',$id]])->delete();
+    }
+    public function getValetNeededNumber($event_id){
+        $totalValet = Event::where('id',$event_id)->select('id','numberOfValetsNeeded')->first();
+        $totalApplied = Application::where('event_id',$event_id)->count();
+
+        return (($totalValet->numberOfValetsNeeded)-$totalApplied);
+    }
+    public function deleteService(Request $request){
+        $data = $request->all();
+        return Event::where('id',$data['id'])->delete();
+      }
 }

@@ -39,7 +39,9 @@ Route::get( 'app/getTotalWokingHours', 'EventController@getTotalWokingHours');
 Route::post( 'app/eventRegistration', 'EventController@eventRegistration');
 Route::post( 'app/applyInEvent', 'EventController@applyInEvent');
 Route::post( 'app/updateEventStatus', 'EventController@updateEventStatus');
+Route::post( 'app/unaapplyEvent', 'EventController@unaapplyEvent');
 Route::get( 'app/getRunningEvents', 'EventController@getRunningEvents');
+Route::post( 'app/deleteService', 'EventController@deleteService');
 
 // a
 Route::get( 'app/getAllWorkingEventList', 'EventController@getAllWorkingEventList');

@@ -64,7 +64,7 @@
 				<div class="container">
 					<p class="_title _text_center">About Schedule</p>
 
-					<p class="_text">Scheduling is the process of arranging, controlling and optimizing work and workloads in a production process or manufacturing process. Welcome to vscheduling, the ultimate valet scheduling tool. This is where valets get the absolute freedom to create their own schedules. There are weekly updates for new job postings which makes for a comfortable experience. Let?? get you started!?ù</p>
+					<p class="_text">Scheduling is the process of arranging, controlling and optimizing work and workloads in a production process or manufacturing process. Welcome to vscheduling, the ultimate valet scheduling tool. This is where valets get the absolute freedom to create their own schedules. There are weekly updates for new job postings which makes for a comfortable experience.</p>
 				</div>
 			</div>
 		</div>

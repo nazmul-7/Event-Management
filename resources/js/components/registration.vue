@@ -37,7 +37,7 @@
                                     <div class="login_input_group">
                                         <p class="regi_title" >Position</p>
                                         <select  v-model="formData.position" >
-                                          <option class="optoin_select" value="manager">Mangers</option>
+                                          <option class="optoin_select" value="manager">Manager</option>
                                           <option class="optoin_select" value="super">Supervisor</option>
                                           <option class="optoin_select" value="valet">Valet</option>
                                         </select>

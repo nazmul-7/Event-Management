@@ -47,7 +47,6 @@
 
                             <div class="Details_profie_location">
                                 <div class="Details_pro_renge _dis_flex _b_color2">
-                                    <i class="fas fa-map-marker-alt"></i>
 
                                     <p class="Details_pro_renge_name _flex_space">First Name</p>
 
@@ -58,7 +57,6 @@
                                 </div>
 
                                 <div class="Details_pro_renge _dis_flex none_f _b_color2">
-                                    <i class="fas fa-globe-europe"></i>
 
                                     <p class="Details_pro_renge_name _flex_space">Last Name</p>
 
@@ -72,7 +70,6 @@
                                
 
                                 <div class="Details_pro_renge _dis_flex _b_color2">
-                                    <i class="far fa-envelope"></i>
 
                                     <p class="Details_pro_renge_name _flex_space">Position</p>
 
@@ -113,7 +110,6 @@
                                     </div>
                                 </div>
                                 <div class="Details_pro_renge _dis_flex _b_color2">
-                                    <i class="fas fa-phone"></i>
 
                                     <p class="Details_pro_renge_name _flex_space">This week's total works</p>
 
@@ -125,7 +121,6 @@
                                     </div>
                                 </div>
                                 <div class="Details_pro_renge _dis_flex _b_color2">
-                                    <i class="fas fa-phone"></i>
 
                                     <p class="Details_pro_renge_name _flex_space">Lifetime working hours</p>
 

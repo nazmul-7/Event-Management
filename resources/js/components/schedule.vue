@@ -56,9 +56,9 @@
                                     </p>
                                 </div>
 
-                                <div class="schedule_time schedule_othder  _b_color" v-if="item.has_applied && authInfo.position!='admin'" >
+                                <div class="schedule_time schedule_othder  _b_color" v-if="item.has_applied && authInfo.position!='admin'" @click="unapply(index)" >
                                     <p class="schedule_time_text">
-                                        <button class=" schedule_button_btn _btn2" disabled  type="button">Applied</Button>
+                                        <button class=" schedule_button_btn _btn2"   type="button">Unapply</Button>
                                     </p>
                                 </div>
                                 <div class="schedule_time schedule_othder  _b_color">
@@ -127,8 +127,21 @@ export default {
             }
             const res = await this.callApi('post','applyInEvent',data)
             if(res.status===201){
-                this.s("Applied for this Event!")
+                this.s("you have Applied for this Event!")
                 this.runningEvents[index].has_applied = true
+                this.runningEvents[index].applications_count++;
+            }
+            else{
+                this.swr();
+            }
+        },
+        async unapply(index){
+            
+            const res = await this.callApi('post','unaapplyEvent',{id:this.runningEvents[index].id})
+            if(res.status===200){
+                this.s("Change have been made successfully!")
+                this.runningEvents[index].has_applied = null;
+                this.runningEvents[index].applications_count--;
             }
             else{
                 this.swr();

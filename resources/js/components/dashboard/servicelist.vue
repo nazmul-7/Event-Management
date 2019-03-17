@@ -34,11 +34,17 @@
                             <button class=" schedule_button_btn _btn2"   type="button" @click="showModal(item)">Details</Button>
                         </p>
                     </div>
-                    <div class="schedule_time _b_color">
+                   <div class="schedule_time schedule_othder  _b_color">
                         <p class="schedule_time_text">
-                            <span class="schedule_time_text_span"><router-link :to="{name:'eventEdit',params:{id:item.id}}">Edit</router-link></span>
+                            <button class=" schedule_button_btn _btn2"   type="button" ><router-link class='_color' :to="{name:'eventEdit',params:{id:item.id}}">Edit</router-link></Button>
                         </p>
                     </div>
+                   <div class="schedule_time schedule_othder  _b_color"  @click="deleteService(index)" >
+                        <p class="schedule_time_text">
+                            <button class=" schedule_button_btn _btn2"  type="button" >Delete</Button>
+                        </p>
+                    </div>
+
                     
                 </div>
             </div>
@@ -82,6 +88,19 @@ export default {
         showModal(item){
             this.eventInfo = item 
             this.isModal = true
+        },
+        async deleteService(index){
+              if(!confirm("Are you sure to delete this service")){
+                return;
+            }
+            const res = await this.callApi('post','deleteService',{id:this.list[index].id})
+            if(res.status===200){
+                this.s('Service has been deleted')
+               this.list.splice(index,1)
+            }
+            else{
+                this.swr();
+            }
         }
     },
     filters:{

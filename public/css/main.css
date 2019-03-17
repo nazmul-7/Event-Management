@@ -1189,8 +1189,29 @@ textarea {
     border-right: none;
 }
 .pro_table_all {
-    padding: 30px 19px 1px;
+    padding: 30px 19px 30px;
     overflow: auto;
+}
+.ivu-select-single .ivu-select-selection .ivu-select-placeholder {
+    color: gold !important;
+}
+.ivu-select-selection-focused, .ivu-select-selection:hover {
+    border-color: #000000 !important;
+}
+.ivu-select-selection {
+    background-color: #131212 !important;
+    border: 1px solid #000000 !important;
+}
+.ivu-select-dropdown {
+    background-color: #000 !important;
+    box-shadow: 0 1px 6px rgba(0,0,0,.2) !important;
+    border: 1px solid #131212 !important;
+}
+.ivu-select-item:hover {
+    background: #131212 !important;
+}
+.ivu-select-item {
+    color: gold !important;
 }
 .pro_table_main {
     width: 687px;
@@ -1425,8 +1446,11 @@ textarea {
 .profile_schedule {
     overflow: auto;
 }
-.pro_schedule_all{
-    width: 750px;
+.pro_schedule_all .schedule_othder {
+    width:auto;
+}
+.pro_schedule_all {
+    width: 1240px;
 }
 .Details_pro_extra_all{}
 .Details_pro_extra_main {
@@ -1922,3 +1946,9 @@ textarea {
     padding: 7px 0;
 }
 /*========= 9.MobileMenu =======*/
+
+/*=========== new css =========*/
+.ivu-input-icon {
+    color: gold !important;
+}
+/*=========== new css =========*/

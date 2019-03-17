@@ -4,7 +4,7 @@
             <div class="row justify-content-center" v-if="!weekFlag" >
                 <div class="col-12 col-md-6">
                     <div class="registration_main _box_shadow _bg _color">
-                        <h3 class="_title2">Create Us</h3>
+                        <h3 class="_title2">Contact Us</h3>
                         <form>
                             <div class="row">
                                     <!-- items -->
