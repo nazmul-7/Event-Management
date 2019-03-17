@@ -64,12 +64,14 @@ export default {
             
           
             const res = await this.callApi('post',"contactus",this.formData)
-            if(res.status===201){
-                this.s("Event registration Successfull!");
-                this.$router.push('/schedule')
-
+            if(res.status==200){
+                this.s("Message has been sent successfully!");
+            }
+            else if(res.status==422){
+                this.e(res.data.errors.email)
             }
             else{
+
                 this.swr();
             }
         },

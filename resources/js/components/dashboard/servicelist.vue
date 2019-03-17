@@ -25,15 +25,15 @@
                         <p class="schedule_time_text">
                             <i class="fas fa-users"></i>
 
-                            <span class="schedule_time_text_span">{{item.numberOfGuests}} </span>
+                            <span class="schedule_time_text_span">{{item.numberOfGuests}} guests</span>
                         </p>
                     </div>
 
-                    <!-- <div class="schedule_time _flex_space _b_color">
+                   <div class="schedule_time schedule_othder  _b_color">
                         <p class="schedule_time_text">
-                            <span class="schedule_time_text_span">Status : {{item.status}}</span>
+                            <button class=" schedule_button_btn _btn2"   type="button" @click="showModal(item)">Details</Button>
                         </p>
-                    </div> -->
+                    </div>
                     <div class="schedule_time _b_color">
                         <p class="schedule_time_text">
                             <span class="schedule_time_text_span"><router-link :to="{name:'eventEdit',params:{id:item.id}}">Edit</router-link></span>
@@ -44,6 +44,17 @@
             </div>
         </div>
         <!-- card -->
+        <Modal
+            v-model="isModal"
+            :title="`${eventInfo.eventName}`"
+        >
+            <p>{{eventInfo.eventDesc}}</p>
+
+            <div slot="footer">
+
+            </div>
+       
+        </Modal>
     </div>
 </template>
 
@@ -54,6 +65,8 @@ export default {
             list:[],
             toDayDate:'',
             user_id:this.$route.params.id,
+             isModal: false, 
+                eventInfo: {}
         }
     },
     methods:{
@@ -66,6 +79,10 @@ export default {
                 this.swr();
             }
         },
+        showModal(item){
+            this.eventInfo = item 
+            this.isModal = true
+        }
     },
     filters:{
         getDay(item){

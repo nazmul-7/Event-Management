@@ -27,11 +27,27 @@
                             <span class="schedule_time_text_span">{{item.event.numberOfGuests}} guests </span>
                         </p>
                     </div>
+                    <div class="schedule_time schedule_othder  _b_color">
+                        <p class="schedule_time_text">
+                            <button class=" schedule_button_btn _btn2"   type="button" @click="showModal(item.event)">Details</Button>
+                        </p>
+                    </div>
                    
                 </div>
                     <!-- card -->
             </div>
     </div>
+    <Modal
+            v-model="isModal"
+            :title="`${eventInfo.eventName}`"
+        >
+            <p>{{eventInfo.eventDesc}}</p>
+
+            <div slot="footer">
+
+            </div>
+       
+        </Modal>
     </div>
 </template>
 
@@ -42,6 +58,8 @@ export default {
             list:[],
             toDayDate:'',
             user_id:this.$route.params.id,
+             isModal: false, 
+                eventInfo: {}
         }
     },
     methods:{
@@ -55,6 +73,10 @@ export default {
                 this.swr();
             }
         },
+         showModal(item){
+            this.eventInfo = item 
+            this.isModal = true
+        }
     },
     filters:{
         getDay(item){

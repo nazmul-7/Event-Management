@@ -118,9 +118,9 @@
                     <div class="col-12 col-md-8 col-lg-8">
                         <div class="_box_shadow pro_menu _bg _color _border_radious " v-if=" authInfo.id==user_id "  >
                             <ul class="pro_menu_list">
-                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==1)? 'pro_menu_active':''" @click="sellerTab=1">Running Event</li>
-                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==2)? 'pro_menu_active':''" @click="sellerTab=2">Old Event</li>
-                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==3)? 'pro_menu_active':''" @click="sellerTab=3">All User List</li>
+                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==1)? 'pro_menu_active':''" @click="sellerTab=1">Running Events</li>
+                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==2)? 'pro_menu_active':''" @click="sellerTab=2">Old Events</li>
+                                <li  v-if="authInfo.id==user_id"  :class="(sellerTab==3)? 'pro_menu_active':''" @click="sellerTab=3">All Users List</li>
                             </ul>
                            
                         </div>

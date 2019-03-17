@@ -28,8 +28,20 @@
 										<p class="_title2">About User</p>
 
 										<div class="home_about_details _dis_flex">
-											<p class="home_pro_title">Name</p>	
-											<p class="home_pro_num">{{item.firstName}} {{item.lastName}} </p>	
+											<p class="home_pro_title">First Name</p>	
+											<p class="home_pro_num">{{item.firstName}}  </p>	
+										</div>
+										<div class="home_about_details _dis_flex">
+											<p class="home_pro_title">Last Name</p>	
+											<p class="home_pro_num">{{item.lastName}}</p>	
+										</div>
+										<div class="home_about_details _dis_flex">
+											<p class="home_pro_title">Email</p>	
+											<p class="home_pro_num">{{item.email}}</p>	
+										</div>
+										<div class="home_about_details _dis_flex">
+											<p class="home_pro_title">Phone</p>	
+											<p class="home_pro_num">{{item.phone}}</p>	
 										</div>
 
 										<div class="home_about_details _dis_flex">
@@ -52,7 +64,7 @@
 				<div class="container">
 					<p class="_title _text_center">About Schedule</p>
 
-					<p class="_text">Scheduling is the process of arranging, controlling and optimizing work and workloads in a production process or manufacturing process. Welcome to vscheduling, the ultimate valet scheduling tool. This is where valets get the absolute freedom to create their own schedules. There are weekly updates for new job postings which makes for a comfortable experience. Let’s get you started!”</p>
+					<p class="_text">Scheduling is the process of arranging, controlling and optimizing work and workloads in a production process or manufacturing process. Welcome to vscheduling, the ultimate valet scheduling tool. This is where valets get the absolute freedom to create their own schedules. There are weekly updates for new job postings which makes for a comfortable experience. Let?? get you started!?�</p>
 				</div>
 			</div>
 		</div>

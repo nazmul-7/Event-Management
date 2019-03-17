@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
+use Mail;
 use App\User;
+use App\Mail\Passwordreset;
+use App\Mail\Contactus;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -64,16 +67,16 @@ class UserController extends Controller
        
             $token=str_random(30);
             $token = \Hash::make($token);
-            \Log::info($token);
+           
             \DB::table('password_resets')->where('email',$request->email)->delete();
             $savedData = \DB::table('password_resets')->insert([
                 'email' => $request->email,
                 'token' => $token, //change 60 to any length you want
                 'created_at' => \Carbon\Carbon::now()
             ]);
-
-                // Mail::to($request->email)
-                // ->send(new Passwrordreset($savedData));
+            $d['token'] = $token;
+            Mail::to($request->email)
+            ->send(new Passwordreset($d));
 
               return response()->json([
                 'msg' => "password reset link has been Sent!",
@@ -159,7 +162,11 @@ class UserController extends Controller
         $this->validate($request, [
             'email' => 'required|string|max:255|email',
         ]);
-        \Log::info($request->all());
+       
+
+        Mail::to('sadek.hkm@gmail.com')
+            ->send(new Contactus($request->all()));
+        
         return response()->json([
             'message' => "Message has been sent!",
           ], 200);

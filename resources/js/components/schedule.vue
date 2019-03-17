@@ -10,7 +10,7 @@
                     
                     <h1 class="_title _text_center">Schedule </h1>
 
-                    <p class="_text _text_center">Dorem Ipsum Dolor Sit. Incidunt Laborum Beatae Earum Nihil Odio Consequatur</p>
+                    <!-- <p class="_text _text_center">Dorem Ipsum Dolor Sit. Incidunt Laborum Beatae Earum Nihil Odio Consequatur</p> -->
 
                         <!--~~~~~~ SCHEDULE ~~~~~~~~-->
                     <div class="schedule_main_all _b_color">
@@ -61,6 +61,12 @@
                                         <button class=" schedule_button_btn _btn2" disabled  type="button">Applied</Button>
                                     </p>
                                 </div>
+                                <div class="schedule_time schedule_othder  _b_color">
+                                    <p class="schedule_time_text">
+                                        <button class=" schedule_button_btn _btn2"   type="button" @click="showModal(item)">Details</Button>
+                                    </p>
+                                </div>
+                               
                             </div>
                                 <!-- ITEMS -->
                         </div>
@@ -73,6 +79,19 @@
                 </div>
             </div>
         </div>
+        <Modal
+            v-model="isModal"
+            :title="`${eventInfo.eventName}`"
+        >
+            <p>{{eventInfo.eventDesc}}</p>
+
+            <div slot="footer">
+
+            </div>
+       
+        </Modal>
+
+
          <footerSection/>
     </div>
 </template>
@@ -80,12 +99,14 @@
 <script>
 import footerSection from '../partials/footer.vue'
 export default {
-    components:{
-      footerSection,
+        components:{
+            footerSection,
         },
-    data(){
-        return{
-            runningEvents:[], 
+        data(){
+            return{
+                runningEvents:[], 
+                isModal: false, 
+                eventInfo: {}
 
         }
     },
@@ -112,6 +133,10 @@ export default {
             else{
                 this.swr();
             }
+        },
+        showModal(item){
+            this.eventInfo = item 
+            this.isModal = true
         }
 
     },

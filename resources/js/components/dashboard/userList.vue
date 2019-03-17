@@ -25,13 +25,13 @@
                 </thead>
                 <tbody>
                 <tr v-for="(item,index) in searchData" :key="index" >
-                    <td>{{item.firstName}} {{item.lastName}}</td>
+                    <td class="pointer" @click="$router.push(`/profile/${item.id}`)">{{item.firstName}} {{item.lastName}}</td>
                     <td>{{item.email}}</td>
                     <td>{{(item.phone)? item.phone: '---' }}</td>
                     <td>{{item | positionName}}</td>
                     <td>
-                        <button @click="updateUser(item)" >{{(item.isActive)? 'Inactivate': 'Activate'}}</button>
-                        <button @click="deleteUser(item)" >Delete</button>
+                        <button @click="updateUser(item)" class="_btn2 _bg">{{(item.isActive)? 'Inactivate': 'Activate'}}</button>
+                        <button @click="deleteUser(item)" class="_btn2 _bg">Delete</button>
 
                     </td>
                 </tr>

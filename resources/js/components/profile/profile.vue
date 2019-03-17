@@ -78,7 +78,8 @@
 
                                     <div class="boi_text_div ">
                                         <div class="Pro_details">
-                                            <p class="boi_text _text_overflow">{{userInfo.position}}</p>
+                                            <p class="boi_text _text_overflow" v-if="userInfo.position!='super'">{{userInfo.position}}</p>
+                                            <p class="boi_text _text_overflow" v-if="userInfo.position=='super'">Supervisor</p>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +90,11 @@
 
                                     <div class="boi_text_div ">
                                         <div class="Pro_details">
-                                            <p class="boi_text _text_overflow">{{userInfo.email}}</p>
+                                            <p v-if="isEdit" class="boi_text _text_overflow">
+                                                <input type="text" v-model="edituserInfo.email">
+                                            </p>
+                                            <p v-if="!isEdit" class="boi_text _text_overflow">{{userInfo.email}}</p>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +186,7 @@ export default {
             isEdit:false,
             totalAllTime:'',
             totalRunningTime:'',
-            defultImage:'/img/pic.png',
+            defultImage:'/img/prfile.png',
             crfObj: {
                     'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
@@ -213,7 +218,7 @@ export default {
         async updateInfo(){
             const res = await this.callApi('post','updateUserInfo',this.userInfo)
             if(res.status===200){
-                this.s("You profile updated successfuly!");
+                this.s("You profile has been updated successfully!");
                 
                  this.userInfo =this.edituserInfo
                   this.isEdit =false
@@ -235,7 +240,7 @@ export default {
             return this.$router.push('/login')
         }
         this.getProfileInfo();
-          this.getTotalWokingHours();
+        this.getTotalWokingHours();
     }
 }
 </script>
