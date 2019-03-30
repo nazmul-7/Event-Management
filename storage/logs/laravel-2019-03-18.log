@@ -1,0 +1,24 @@
+[2019-03-18 11:57:04] local.INFO: array (
+  'eventName' => 'sd',
+  'eventDesc' => 'ads',
+  'eventLocation' => 'asd',
+  'timeSlot' => '09:00 AM - 09:00 PM',
+  'totalHours' => '12.00',
+  'numberOfGuests' => '23',
+  'numberOfValetsNeeded' => '23',
+  'visibleAfter' => '23',
+  'eventDate' => '2019-03-26',
+  'user_id' => 3,
+)  
+[2019-03-18 11:57:47] local.INFO: array (
+  'eventName' => 'new',
+  'eventDesc' => 'asd',
+  'eventLocation' => 'asd',
+  'timeSlot' => '10:00 AM - 06:00 PM',
+  'totalHours' => '8.00',
+  'numberOfGuests' => '34',
+  'numberOfValetsNeeded' => '34',
+  'visibleAfter' => '34',
+  'eventDate' => '2019-03-26',
+  'user_id' => 3,
+)  
