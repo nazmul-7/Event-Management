@@ -71,7 +71,8 @@
                                  <div class="col-12 col-md-12">
                                     <div class="login_input_group">
                                         <p class="regi_title">Time-Range</p>
-                                        <TimePicker class="content_input_int" v-model="formData.timeSlot" @on-change="getSlots"  format="HH:mm" type="timerange" placement="bottom-end" placeholder="Select time" ></TimePicker>
+                                        
+                                        <TimePicker class="content_input_int" v-model="formData.timeSlot" @on-change="getSlots"  format="hh:mm A" type="timerange" placement="bottom-end" placeholder="Select time" ></TimePicker>
                                       
                                     </div>
                                 </div>
@@ -198,10 +199,19 @@ export default {
             // FORMATE THE DATE 
             start = start.split(":");
             end = end.split(":");
-            var startDate = new Date(0, 0, 0, start[0], start[1], 0);
-            var endDate = new Date(0, 0, 0, end[0], end[1], 0);
-            console.log(startDate)
-            console.log(endDate)
+            start[1] = start[1].split(" ");
+            end[1] = end[1].split(" ");
+             if(start[1][1]=='PM' && start[0]!='12') start[0] = parseInt(start[0])+12
+             if(end[1][1]=='PM' && end[0]!='12') end[0] = parseInt(end[0])+12
+
+             if(start[1][1]=='AM' && start[0]=='12') start[0] = parseInt(start[0])-12
+             if(end[1][1]=='AM' && end[0]=='12') end[0] = parseInt(end[0])-12
+            
+           
+            var startDate = new Date(0, 0, 0, start[0], start[1][0], 0);
+            var endDate = new Date(0, 0, 0, end[0], end[1][0], 0);
+           
+            
             var diff = endDate.getTime() - startDate.getTime();
             var hours = Math.floor(diff / 1000 / 60 / 60);
             diff -= hours * 1000 * 60 * 60;
@@ -216,7 +226,7 @@ export default {
             return time
         },
         getSlots(){
-            console.log(this.formData.timeSlot);
+            
             this.formData.totalHours = this.formatTime(this.formData.timeSlot[0],this.formData.timeSlot[1])
         }
 
@@ -232,6 +242,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
 
+input,
+label {
+    margin: .4rem 0;
+}
+
+.note {
+    font-size: .8em;
+}
 </style>
+

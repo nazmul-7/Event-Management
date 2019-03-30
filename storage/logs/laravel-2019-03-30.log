@@ -1,0 +1,12 @@
+[2019-03-30 22:23:55] local.INFO: array (
+  'eventName' => 'Time Edited',
+  'eventDesc' => 'Sone Time Editing Description',
+  'eventLocation' => 'Sylhet',
+  'timeSlot' => '10:00 AM - 08:00 PM',
+  'totalHours' => '10.00',
+  'numberOfGuests' => '50',
+  'numberOfValetsNeeded' => '8',
+  'visibleAfter' => '1',
+  'eventDate' => '2019-04-01',
+  'user_id' => 3,
+)  
