@@ -1,0 +1,12 @@
+[2019-04-06 18:07:39] local.INFO: array (
+  'eventName' => 'Event 4',
+  'eventDesc' => 'This is some description',
+  'eventLocation' => 'Sylhet,Bangladesh',
+  'timeSlot' => '11:00 AM - 03:00 PM',
+  'totalHours' => '4.00',
+  'numberOfGuests' => '50',
+  'numberOfValetsNeeded' => '5',
+  'visibleAfter' => '1',
+  'eventDate' => '2019-04-07',
+  'user_id' => 3,
+)  
