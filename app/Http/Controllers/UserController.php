@@ -164,7 +164,7 @@ class UserController extends Controller
         ]);
        
 
-        Mail::to('sadek.hkm@gmail.com')
+        Mail::to('farjanasumi100@gmail.com')
             ->send(new Contactus($request->all()));
         
         return response()->json([

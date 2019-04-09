@@ -87274,6 +87274,16 @@ var render = function() {
               1
             ),
             _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: { path: "/contact" } } }, [
+                  _vm._v("CONTACT")
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
             !_vm.authInfo
               ? _c(
                   "li",
