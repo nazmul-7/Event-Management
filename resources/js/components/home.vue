@@ -3,7 +3,7 @@
 		<div class="home _mt_110">
 			<div class="container">
 				<div class="home_all _box_shadow _bg _border_radious" v-if="list.length" >
-					<slick
+					<!-- <slick
 						ref="slick"
 						:options="slickOptions"
 						@afterChange="handleAfterChange"
@@ -17,7 +17,6 @@
 						@swipe="handleSwipe"
 						@lazyLoaded="handleLazyLoaded"
 						@lazyLoadError="handleLazeLoadError">
-							<!-- ITMES -->
 						<div v-for="(item,index) in list" :key="index" v-if="item.position!='admin'"  >
 							<a   >
 								<div class="row">
@@ -52,11 +51,8 @@
 								</div>	
 							</a>
 						</div>
-							<!-- ITMES -->
-						
-						<!-- ITMES -->
-						
-					</slick>
+					</slick> -->
+					 <img class="cover_img" src="/img/cover.jpg" title="" alt="">
 				</div>
 			</div>
 			

@@ -3503,10 +3503,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -9949,7 +9945,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.component-fade-enter-active, .component-fade-leave-active {\n  transition: opacity .5s ease;\n}\n.component-fade-enter, .component-fade-leave-to\n/* .component-fade-leave-active below version 2.1.8 */ {\n  opacity: 0;\n}\n.progress-linear {\n    \n    position: absolute;\n    top: -15px;\n}\n", ""]);
+exports.push([module.i, "\n.component-fade-enter-active, .component-fade-leave-active {\r\n  transition: opacity .5s ease;\n}\n.component-fade-enter, .component-fade-leave-to\r\n/* .component-fade-leave-active below version 2.1.8 */ {\r\n  opacity: 0;\n}\n.progress-linear {\r\n    \r\n    position: absolute;\r\n    top: -15px;\n}\r\n", ""]);
 
 // exports
 
@@ -85613,179 +85609,11 @@ var render = function() {
                 "div",
                 { staticClass: "home_all _box_shadow _bg _border_radious" },
                 [
-                  _c(
-                    "slick",
-                    {
-                      ref: "slick",
-                      attrs: { options: _vm.slickOptions },
-                      on: {
-                        afterChange: _vm.handleAfterChange,
-                        beforeChange: _vm.handleBeforeChange,
-                        breakpoint: _vm.handleBreakpoint,
-                        destroy: _vm.handleDestroy,
-                        edge: _vm.handleEdge,
-                        init: _vm.handleInit,
-                        reInit: _vm.handleReInit,
-                        setPosition: _vm.handleSetPosition,
-                        swipe: _vm.handleSwipe,
-                        lazyLoaded: _vm.handleLazyLoaded,
-                        lazyLoadError: _vm.handleLazeLoadError
-                      }
-                    },
-                    _vm._l(_vm.list, function(item, index) {
-                      return item.position != "admin"
-                        ? _c("div", { key: index }, [
-                            _c("a", [
-                              _c("div", { staticClass: "row" }, [
-                                _c(
-                                  "div",
-                                  { staticClass: "col-md-6 home_pic" },
-                                  [
-                                    _c("img", {
-                                      staticClass: "home_img",
-                                      attrs: {
-                                        src: item.image
-                                          ? item.image
-                                          : _vm.defultImage,
-                                        alt: ""
-                                      }
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "col-md-6 home_about" },
-                                  [
-                                    _c("p", { staticClass: "_title2" }, [
-                                      _vm._v("About User")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "home_about_details _dis_flex"
-                                      },
-                                      [
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_title" },
-                                          [_vm._v("First Name")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_num" },
-                                          [
-                                            _vm._v(
-                                              _vm._s(item.firstName) + "  "
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "home_about_details _dis_flex"
-                                      },
-                                      [
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_title" },
-                                          [_vm._v("Last Name")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_num" },
-                                          [_vm._v(_vm._s(item.lastName))]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "home_about_details _dis_flex"
-                                      },
-                                      [
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_title" },
-                                          [_vm._v("Email")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_num" },
-                                          [_vm._v(_vm._s(item.email))]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "home_about_details _dis_flex"
-                                      },
-                                      [
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_title" },
-                                          [_vm._v("Phone")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_num" },
-                                          [_vm._v(_vm._s(item.phone))]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "home_about_details _dis_flex"
-                                      },
-                                      [
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_title" },
-                                          [_vm._v("Position")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "home_pro_num" },
-                                          [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm._f("positionName")(item)
-                                              )
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            ])
-                          ])
-                        : _vm._e()
-                    }),
-                    0
-                  )
-                ],
-                1
+                  _c("img", {
+                    staticClass: "cover_img",
+                    attrs: { src: "/img/cover.jpg", title: "", alt: "" }
+                  })
+                ]
               )
             : _vm._e()
         ]),
@@ -87441,16 +87269,6 @@ var render = function() {
               [
                 _c("router-link", { attrs: { to: { path: "/about" } } }, [
                   _vm._v("ABOUT")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: { path: "/contact" } } }, [
-                  _vm._v("CONTACT")
                 ])
               ],
               1
@@ -108678,8 +108496,8 @@ var USER_UPDATED = function USER_UPDATED(state, user) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\Event-Booking\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\Event-Booking\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\WorkProjects\event\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\WorkProjects\event\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

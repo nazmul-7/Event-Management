@@ -16,7 +16,7 @@
                             <li><router-link :to="{path:'/'}" >HOME</router-link></li>
                             <li v-if="authInfo" ><router-link :to="{path:'/schedule'}" >SCHEDULE</router-link></li>
                             <li><router-link :to="{path:'/about'}" >ABOUT</router-link></li>
-                            <li><router-link :to="{path:'/contact'}" >CONTACT</router-link></li>
+                            <!-- <li><router-link :to="{path:'/contact'}" >CONTACT</router-link></li> -->
                             <li v-if="!authInfo" ><router-link :to="{path:'/login'}" >LOGIN</router-link></li>
                             <li v-if="!authInfo" ><router-link :to="{path:'/registration'}" >REGISTRATION</router-link></li>
                             <li v-if="authInfo.position!='admin'" ><router-link  :to="{name:'profile',params:{ id:authInfo.id}}" >{{this.authInfo.firstName}}</router-link></li>
